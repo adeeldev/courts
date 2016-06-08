@@ -1,0 +1,9 @@
+<div class="col-sm-offset-4 col-sm-4">
+	<div ng-form name='myform' class="form-signin">
+		<h2 class="form-signin-heading">Admin LogIn</h2>
+	<span class="glyphicon glyphicon-person"></span><input type='text' class="form-control" id='username' name='username' ng-model='Admin.username' placeholder='Username' autofocus required>
+		<input type='password' class="form-control" id='password' name='password' ng-model='Admin.password' placeholder='Password' required>
+		<p class="bg-danger" ng-show='error'>{{errorMsg}}</p>
+		<button class="btn btn-primary btn-md btn-block" ng-click='login()'>Login</button>
+	</div>
+</div>

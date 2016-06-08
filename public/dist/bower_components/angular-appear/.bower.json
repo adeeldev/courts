@@ -1,0 +1,26 @@
+{
+  "name": "jquery-appear",
+  "version": "0.1.1",
+  "main": [
+    "src/angular-appear.js"
+  ],
+  "ignore": [
+    "external",
+    "samples",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.2.26",
+    "jquery-appear": "~0.2.3"
+  },
+  "homepage": "https://github.com/emn178/angular-appear",
+  "_release": "0.1.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.1.1",
+    "commit": "1615fca67024d10c314d721e897a3c014f30045f"
+  },
+  "_source": "git://github.com/emn178/angular-appear.git",
+  "_target": "~0.1.1",
+  "_originalSource": "angular-appear"
+}

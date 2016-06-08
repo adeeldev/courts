@@ -1,0 +1,36 @@
+{
+  "name": "turkeyapp",
+  "version": "1.0.0",
+  "description": "Back-end for Turkey Application.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@bitbucket.org/taimoor736/turkey-app.git"
+  },
+  "author": "Taimoor Ali",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/taimoor736/turkey-app#readme",
+  "dependencies": {
+    "angularjs-datepicker": "^0.2.16",
+    "body-parser": "^1.14.1",
+    "busboy": "^0.2.12",
+    "connect-multiparty": "^2.0.0",
+    "express": "^4.13.3",
+    "graceful-fs": "^4.1.2",
+    "lodash": "^3.10.1",
+    "md5": "^2.0.0",
+    "merge": "^1.2.0",
+    "moment": "^2.10.6",
+    "mongoose": "^4.2.7",
+    "node-base64-image": "^0.1.2",
+    "node-gcm": "^0.13.0",
+    "nodemailer": "^1.10.0",
+    "nodemailer-mailgun-transport": "git+https://github.com/orliesaurus/nodemailer-mailgun-transport.git",
+    "nodemailer-smtp-transport": "^1.1.0",
+    "q": "^1.4.1",
+    "restify": "^4.0.3"
+  }
+}

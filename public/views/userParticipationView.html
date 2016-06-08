@@ -1,0 +1,28 @@
+<a href="/#!/users" class="btn btn-md btn-primary pull-right"><span class='glyphicon glyphicon-arrow-left'></span> Back To Users</a>
+<h4>{{User.name | labelCase}}'s Participation</h4>
+<p>
+	<h4 class="pull-right">Answered Question : {{userObj.length}}</h4>
+</p>
+<table class="table table-striped table-hover ">
+	<thead>
+		<tr>
+			<td>Question</td>
+			<td>Correct Answer</td>
+			<td>His Answer</td>
+			<td>Answer Time</td>
+		</tr>
+	</thead>
+	<tbody ng-show='noParticipation'>
+		<tr>
+			<td colspan="4">No Particpation Found</td>
+		</tr>
+	</tbody>
+	<tbody ng-show='!noParticipation'>
+		<tr ng-repeat='user in userObj'>
+			<td>{{user.question}}</td>
+			<td>{{user.correctAnswer}}</td>
+			<td>{{user.user.answer}}</td>
+			<td>{{user.user.date | date:'MM-dd-yyyy hh:mm a'}}</td>
+		</tr>
+	</tbody>
+</table>
