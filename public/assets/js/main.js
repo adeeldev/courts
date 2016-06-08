@@ -31,7 +31,7 @@ function ($rootScope, $state, $stateParams) {
             isFooterFixed: false, // true if you want to initialize the template with fixed footer
             isBoxedPage: false, // true if you want to initialize the template with boxed layout
             theme: 'lyt6-theme-1', // indicate the theme chosen for your project
-            logo: 'Saudi courts',//'assets/images/logo.png', // relative path of the project logo
+            logo: 'assets/images/logo.png', // relative path of the project logo
             logoCollapsed: 'assets/images/logo-collapsed.png' // relative path of the collapsed logo
         },
         layout: ''
