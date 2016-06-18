@@ -2,7 +2,24 @@
 /**
  * Controller of the angularBootstrapCalendarApp
 */
-app.controller('CalendarCtrl', ["$scope", "$aside", "moment", "SweetAlert", function ($scope, $aside, moment, SweetAlert) {
+app.controller('CalendarCtrl', ["$scope", "reservationService", "$location",  "$aside", "moment", "SweetAlert", function ($scope, reservationService,  $location, $aside, moment, SweetAlert) {
+
+    console.log('in chat controller');
+    var pathArray = $location.url().split('/') ;
+    $scope.court = pathArray[3];
+    console.log($scope.court);
+
+    var reserveCourt = {'court' : $scope.court}
+    reservationService.getReservation(reserveCourt)
+    .then(function (reserveResponse){
+
+      $scope.reservation = reserveResponse.data.result;
+    })
+    .catch(function (err){
+      if(err.status == 500){
+        $scope.serverError = true;
+      }
+    })
 
 
     var vm = this;
@@ -15,8 +32,8 @@ app.controller('CalendarCtrl', ["$scope", "$aside", "moment", "SweetAlert", func
 	  {
 	      title: 'Birthday Party',
 	      type: 'home',
-	      startsAt: new Date(y, m, 5, 19, 0),
-	      endsAt: new Date(y, m, 5, 22, 30)
+	      startsAt: '2016-06-26T14:44:30.561Z',
+	      endsAt: '2016-06-26T14:44:30.561Z'
 	  },
 	  {
 	      title: 'AngularJS Seminar',

@@ -124,7 +124,8 @@ function ($rootScope, $scope, $state, $swipe, $translate, $localStorage, $window
         available: {
             'en': 'English',
             'it_IT': 'Italiano',
-            'de_DE': 'Deutsch'
+            'de_DE': 'Deutsch',
+            'arabic'   : 'Arabic'
         },
         // display always the current ui language
         init: function () {

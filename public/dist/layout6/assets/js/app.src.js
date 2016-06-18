@@ -68347,7 +68347,7 @@ function ($stateProvider, $urlRouterProvider, $controllerProvider, $compileProvi
     // Set up the states
     $stateProvider.state('app', {
         url: "/app",
-        templateUrl: "assets/views/app.html",
+        templateUrl: "views/app.html",
         resolve: loadSequence('chartjs', 'chart.js', 'chatCtrl'),
         abstract: true
     }).state('app.dashboard', {

@@ -1,0 +1,101 @@
+<div class="container-fluid container-fullw">
+    <div class="row">
+                 <div class="panel-body">
+                    <div class="row margin-top-10">
+ 
+                        <div class="col-lg-12">
+                            <div class="panel panel-white">
+                                <div class="panel-heading">
+                                    <h5 class="panel-title">Add Reservation</h5>
+                                </div>
+                                <div class="panel-body">
+                                    <form role="form" class="form-inline" name="reserve">
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <input type="text" placeholder="Name" ng-model="reserve.name" id="name" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+        
+                                            <div class="input-group">
+                                               <input date-time name="pickerMinDate" class="form-control" ng-model="dates.today" id="pickerMinDate" min-date="minDate" view="date" min-view="hours" format="MM-DD-YYYY hh:mm a">
+                                            </div>
+                                        </div>
+                                       <div class="form-group">
+                                            <select class="js-example-basic-hide-search js-states form-control" ng-model="reserve.court">
+                                                    <option value="">court name</option>
+                                                    <option value="court1">court1</option>
+                                                    <option value="court2">court2</option>
+                                                    <option value="court3">court3</option>
+                                                    <option value="court4">court4</option>
+                                                </optgroup>
+                                            </select>
+                                        </div>                                        <br><br>
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <input type="text" placeholder="Phone Number" ng-model="reserve.number" id="number" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <select class="js-example-basic-hide-search js-states form-control" ng-model="reserve.sTime">
+                                                    <option value="">Start Time</option>
+                                                    <option value="1pm">1 AM</option>
+                                                    <option value="2 pm">2 AM</option>
+                                                    <option value="3 pm">3 AM </option>
+                                                    <option value="4 pm">4 AM</option>
+                                                    <option value="5 pm">5 AM</option>
+                                                    <option value="6 pm">6 AM</option>
+                                                    <option value="7 pm">7 AM</option>
+                                                    <option value="8 pm">8 AM</option>
+                                                    <option value="9 pm">9 AM</option>
+                                                    <option value="10 pm">10 AM</option>
+                                                    <option value="11 pm">11 AM</option>
+                                                    <option value="12 pm">12 AM</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <select class="form-control" ng-model="reserve.eTime">
+                                                    <option value="">End Time</option>
+                                                    <option value="1 pm">1 AM</option>
+                                                    <option value="2 pm">2 AM</option>
+                                                    <option value="3 pm">3 AM </option>
+                                                    <option value="4 pm">4 AM</option>
+                                                    <option value="5 pm">5 AM</option>
+                                                    <option value="6 pm">6 AM</option>
+                                                    <option value="7 pm">7 AM</option>
+                                                    <option value="8 pm">8 AM</option>
+                                                    <option value="9 pm">9 AM</option>
+                                                    <option value="10 pm">10 AM</option>
+                                                    <option value="11 pm">11 AM</option>
+                                                    <option value="12 pm">12 AM</option>
+                                            </select>
+                                        </div>  <br><br>
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <input type="text" placeholder="Advance Payment" ng-model="reserve.advancePayment" id="advancePayment" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <input type="text" placeholder="Remaining Payment" ng-model="reserve.remainingPayment" id="remainingPayment" class="form-control">
+                                            </div>
+                                        </div> <br><br>
+                                        <div class="form-group">
+        
+                                            <div class="input-group">
+                                               <textarea placeholder="Add Notes" ng-model="reserve.notes" id="notes" class="form-control"></textarea>
+                                            </div>
+                                        </div>                                                 
+
+                                        <button class="btn btn-primary" type="submit" ng-click="addReservation(reserve,dates.today)">
+                                            Add Reservation
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    </div>
+</div>
+</div>
+
