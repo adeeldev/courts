@@ -1,7 +1,7 @@
 var conf = {
         "environment": "development",
         "server": {
-                "port": 3500,
+                "port": 4000,
         },
         "db": {
                 "dbName": "courtdb",
