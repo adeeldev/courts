@@ -5,21 +5,21 @@
 app.controller('CalendarCtrl', ["$scope", "reservationService", "$location",  "$aside", "moment", "SweetAlert", function ($scope, reservationService,  $location, $aside, moment, SweetAlert) {
 
     console.log('in chat controller');
-    var pathArray = $location.url().split('/') ;
-    $scope.court = pathArray[3];
-    console.log($scope.court);
+    // var pathArray = $location.url().split('/') ;
+    // $scope.court = pathArray[3];
+    // console.log($scope.court);
 
-    var reserveCourt = {'court' : $scope.court}
-    reservationService.getReservation(reserveCourt)
-    .then(function (reserveResponse){
-
-      $scope.reservation = reserveResponse.data.result;
-    })
-    .catch(function (err){
-      if(err.status == 500){
-        $scope.serverError = true;
-      }
-    })
+    // var reserveCourt = {'court' : $scope.court}
+    // reservationService.getReservation(reserveCourt)
+    // .then(function (reserveResponse){
+    //
+    //   $scope.reservation = reserveResponse.data.result;
+    // })
+    // .catch(function (err){
+    //   if(err.status == 500){
+    //     $scope.serverError = true;
+    //   }
+    // })
 
 
     var vm = this;

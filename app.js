@@ -86,7 +86,7 @@
 	//							Server Starting - Section
 	//====================================================================================
 
-	var port = config.server.port || 3500;
+	var port = config.server.port || 3600;
 	app.listen(port, function (err,result){
 		if(!err){
 			console.log("Listening on port: ", port);

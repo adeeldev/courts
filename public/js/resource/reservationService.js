@@ -1,5 +1,4 @@
-angular.module('TurkishApp')
-	.service('reservationService',['$http','$location',function ($http,$location){
+app.service('reservationService',['$http','$location',function ($http,$location){
 
 		var URL = "http://" + $location.host() + ':' + $location.port() + "/reservation";
 		var req = {};
