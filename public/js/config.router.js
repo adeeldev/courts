@@ -48,6 +48,12 @@
           title: 'Reservation',
           controller: 'reservationCtrl',
           resolve: loadSequence('reservationService','reservationCtrl')
+      }).state('app.event', {
+          url: "/event",
+          templateUrl: "views/app/reservation.html",
+          title: 'Event',
+          controller: 'eventCtrl',
+          resolve: loadSequence('eventService','eventCtrl')
       }).state('app.courts', {
           url: "/courts",
           templateUrl: "views/courts.html",

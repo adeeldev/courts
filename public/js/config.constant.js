@@ -54,7 +54,9 @@ app.constant('JS_REQUIRES', {
         'sliderCtrl': 'js/controllers/sliderCtrl.js',
         'knobCtrl': 'js/controllers/knobCtrl.js',
         'reservationCtrl': 'js/controllers/reservationController.js',
+        'eventCtrl': 'js/controllers/EventController.js',
         'reservationService': 'js/resource/reservationService.js',
+        'eventService': 'js/resource/eventService.js',
     },
     //*** angularJS Modules
     modules: [{

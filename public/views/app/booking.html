@@ -1,0 +1,25 @@
+<table class="table table-striped table-hover" ng-init="getTrans()">
+  <thead>
+    <tr>
+      <th>Trans ID</th>
+      <th>Amout Paid</th>
+      <th>Currency</th>
+      <th>Email</th>
+      <th>Created</th>
+    </tr>
+  </thead>
+    <tbody ng-if='transactions.length == 0'>
+        <tr>
+            <td colspan='5'>No Data found</td>
+        </tr>
+    </tbody>
+  <tbody ng-if='transactions.length != 0'>
+  <tr ng-repeat='trans in transactions'>
+    <td>{{trans.id}}</td>
+    <td>{{trans.amount}}</td>
+    <td>{{trans.currency}}</td>
+    <td>{{trans.description}}</td>
+    <td>{{trans.created}}</td>
+  </tr>
+  </tbody>
+</table>

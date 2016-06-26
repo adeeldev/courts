@@ -1,0 +1,44 @@
+<div class="panel panel-primary">
+	<div class="panel-heading">
+		<h3 class="panel-title">Edit Profile
+		<a href="/#!/admin/changePassword" class="pull-right">Change Password</a>
+		</h3>
+	</div>
+	<div class="panel-body">
+		<div ng-form name='myForm' class="form-horizontal">
+			<div class='form-group'>
+				<label class="control-label col-sm-2" for='fname'>First Name</label>
+				<div class="col-sm-10">
+					<input class="form-control" ng-model='Admin.firstName' name='fname' required>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class="control-label col-sm-2" for='lname'>Last Name</label>
+				<div class="col-sm-10">
+						<input class="form-control" ng-model='Admin.lastName' name='lname' required>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class="control-label col-sm-2" for='uname'>Username</label>
+				<div class="col-sm-10">
+					<input class="form-control" ng-model='Admin.username' name='uname' required>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class="control-label col-sm-2" for='email'>Email</label>
+				<div class="col-sm-10">
+					<input class="form-control" ng-model='Admin.email' name='email' required>
+				</div>
+			</div>
+			<button class="btn btn-lg btn-success pull-right" ng-click="prompt('sm')">Save Changes</button>
+		</div>
+	</div>
+</div>
+
+<!-- <div class="form-group"> 
+	<div class="col-sm-offset-2 col-sm-10">
+		<div class="checkbox">
+			<label><input type="checkbox" ng-model='changePassword'> Change Password</label>
+		</div>
+	</div>
+</div> -->

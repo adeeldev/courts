@@ -1,0 +1,37 @@
+<div class="modal-header">
+	<h4 class="modal-title">{{Event.eventTitle}}</h4>
+</div>
+<div class="modal-body" ng-form name='myForm'>
+	<h5 class="pull-right"><strong> Timezone : {{timezone}}</strong></h5>
+	<div class="form-group" ng-if="errCheck" ><!-- ng-repeat='err in Errors'-->
+		<p class='bg-danger'>{{errCheck}}</p>
+	</div>
+	<div class="form-group">
+		<label class="col-sm-4" for="email">Username</label>
+		<input type="text" name='username' class="form-control" ng-model='Event.username' placeholder='Username' required>
+	</div>
+<!-- 	<div class="form-group">
+		<label class="control-label">Date</label>
+		<input date-time name="pickerMinDate" ng-model="Event.eventDate" id="pickerMinDate" min-date="minDate" view="date" min-view="hours" format="MM-DD-YYYY hh:mm a">
+	</div> -->
+	<div class="form-group">
+		<label class="control-label">password</label>
+		<input placeholder='Password' type="text" class="form-control" name='password' ng-model='Event.password' required>
+	</div>
+	<div class="form-group">
+		<label class="control-label">Email</label>
+		<input placeholder='email' type="text" class="form-control" name='email' ng-model='Event.email' required>
+	</div>
+	<div class="form-group" required>
+		<label class="col-sm-4">Location</label>
+		<input placeholder='Location' type="text" class="form-control" name='location' ng-model='Event.location' required>
+	</div>
+	<div class="form-group" required>
+		<label class="col-sm-4">No of Slots</label>
+		<input placeholder='Slots' type="text" class="form-control" name='slots' ng-model='Event.slots' required>
+	</div>	
+</div>
+<div class="modal-footer">
+	<button type="button" class="btn btn-default" ng-click='cancel()'>Close</button>
+	<button type="submit" class="btn btn-primary" ng-click='ok(myForm)'>Save changes</button>
+</div>
