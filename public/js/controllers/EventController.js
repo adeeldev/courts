@@ -1,5 +1,4 @@
-angular.module('TurkishApp')
-	.controller('EventController',['$scope','eventService','$uibModal',function ($scope, eventService, $uibModal){
+app.controller('EventController',['$scope','eventService','$uibModal',function ($scope, eventService, $uibModal){
 		var tz = jstz.determine();
 		$scope.timezone = tz.name();
 		$scope.message = "Events";
@@ -60,7 +59,7 @@ angular.module('TurkishApp')
 		})
 		.catch(function (err){
 			if(err.status == 500){
-				$scope.serverError = true;				
+				$scope.serverError = true;
 			}
 		})
 		$scope.animationsEnabled = true;
@@ -190,5 +189,5 @@ angular.module('TurkishApp')
   //       if (values) {
   //         $scope.$broadcast('pickerUpdate', pickersToUpdate, values);
   //       }
-  //     }			
+  //     }
 	}])

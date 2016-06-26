@@ -1,5 +1,4 @@
-angular.module('TurkishApp')
-	.service('eventService',['$http','$location',function ($http,$location){
+app.service('eventService',['$http','$location',function ($http,$location){
 
 		var URL = "http://" + $location.host() + ':' + $location.port() + "/event";
 		var req = {};

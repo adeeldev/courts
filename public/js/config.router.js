@@ -50,7 +50,7 @@
           resolve: loadSequence('reservationService','reservationCtrl')
       }).state('app.event', {
           url: "/event",
-          templateUrl: "views/app/reservation.html",
+          templateUrl: "views/app/event.html",
           title: 'Event',
           controller: 'eventCtrl',
           resolve: loadSequence('eventService','eventCtrl')
