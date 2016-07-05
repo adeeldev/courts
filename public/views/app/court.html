@@ -1,0 +1,23 @@
+<div class="container-fluid container-fullw">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="panel panel-white">
+					<div class="panel-body">
+
+                <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                    <label class="text-bold">
+                                        <h2>Select Court to View Reservations</h2>
+                                    </label>
+                                    <select  class="form-control" ng-options="court.title for court in courts" ng-model="event.court" ng-click="viewReservation(event.court)">
+                                        <option value="" disabled="">Select</option>
+                                    </select>
+                            </div>
+                        </div>
+                </div>
+					</div>
+				</div>
+			</div>
+		</div>
+</div>

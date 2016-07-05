@@ -1,6 +1,5 @@
-angular.module('TurkishApp')
-	.service('userService', ['$http','$location',function($http,$location){
-		 
+app.service('userService', ['$http','$location',function($http,$location){
+
 		var url = "http://" + $location.host() + ':' + $location.port() + "/user";
 		var req = {};
 		this.getAllUser = function(){
@@ -24,7 +23,7 @@ angular.module('TurkishApp')
 				data : data
 			}
 			return $http(req);
-		}			
+		}
 		// this.test = function(){
 		// 	return 'oyeee ki  eee';
 		// }

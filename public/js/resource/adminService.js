@@ -1,5 +1,4 @@
-angular.module('TurkishApp')
-	.service('adminService',['$http','$location',function ($http,$location){
+app.service('adminService',['$http','$location',function ($http,$location){
 		var URL = 'http://' + $location.host() + ":" + $location.port() + '/admin';
 		var req = {};
 
@@ -12,7 +11,7 @@ angular.module('TurkishApp')
 				}
 			}
 			return $http(req);
-		}		
+		}
 		this.login = function (data){
 			req = {
 				'method' : 'POST',

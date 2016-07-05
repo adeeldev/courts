@@ -1,5 +1,4 @@
-angular.module('TurkishApp')
-	.service('slotService',['$http','$location',function ($http,$location){
+app.service('slotService',['$http','$location',function ($http,$location){
 
 		var URL = "http://" + $location.host() + ':' + $location.port() + "/slot";
 		var req = {};
@@ -10,7 +9,7 @@ angular.module('TurkishApp')
 				header : {
 					"Content-Type" : "application/json"
 				},
-				data : data				
+				data : data
 			}
 			return $http(req);
 		}
@@ -22,14 +21,14 @@ angular.module('TurkishApp')
 				method : 'POST',
 				url    : 	p_url	,
 				header : {
-					"Content-Type"  : "application/json" 
+					"Content-Type"  : "application/json"
 				},
 				data : data
 			}
 			return $http(req);
 		}
 
-		
+
 		this.getTrans = function(){
 			var p_url = 'http://' + $location.host() + ':' + $location.port() + '/payment/getAllTrans';
 			req = {
@@ -37,7 +36,7 @@ angular.module('TurkishApp')
 				'url' : p_url,
 			}
 			return $http(req);
-		}	
+		}
 
 		this.addSlot = function(data){
 			req = {
@@ -49,8 +48,8 @@ angular.module('TurkishApp')
 				data : data
 			}
 			return $http(req);
-		}	
-		
+		}
+
 		this.deletePromotion = function(data){
 			req = {
 				method : "POST",
@@ -61,7 +60,7 @@ angular.module('TurkishApp')
 				data : data
 			}
 			return $http(req);
-		}		
+		}
 
 		this.changeSlot = function(data){
 			req = {
@@ -73,6 +72,6 @@ angular.module('TurkishApp')
 				data : data
 			}
 			return $http(req);
-		}			
+		}
 
 	}])

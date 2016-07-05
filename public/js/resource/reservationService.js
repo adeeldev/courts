@@ -9,7 +9,7 @@ app.service('reservationService',['$http','$location',function ($http,$location)
 		// 		header : {
 		// 			"Content-Type" : "application/json"
 		// 		},
-		// 		data : data				
+		// 		data : data
 		// 	}
 		// 	return $http(req);
 		// }
@@ -21,21 +21,60 @@ app.service('reservationService',['$http','$location',function ($http,$location)
 		// 		method : 'POST',
 		// 		url    : 	p_url	,
 		// 		header : {
-		// 			"Content-Type"  : "application/json" 
+		// 			"Content-Type"  : "application/json"
 		// 		},
 		// 		data : data
 		// 	}
 		// 	return $http(req);
 		// }
-		
-		this.getreservations = function(){
-			var p_url = 'http://' + $location.host() + ':' + $location.port() + '/reservation';
+
+		// this.getreservations = function(){
+		// 	var p_url = 'http://' + $location.host() + ':' + $location.port() + '/reservation';
+		// 	req = {
+		// 		'method' : 'GET',
+		// 		'url' : p_url,
+		// 	}
+		// 	return $http(req);
+		// }
+
+
+		this.getCourts = function(){
+			var p_url = 'http://' + $location.host() + ':' + $location.port() + '/court';
 			req = {
-				'method' : 'GET',
-				'url' : p_url,
+				method : "POST",
+				url : p_url + '/courts',
+				header : {
+					"Content-Type" : "application/json"
+				}
 			}
 			return $http(req);
-		}	
+		}
+
+		this.getreservations = function(data){
+			var p_url = 'http://' + $location.host() + ':' + $location.port() + '/reservation';
+			req = {
+				method : "POST",
+				url : p_url + '/getReservation',
+				header : {
+					"Content-Type" : "application/json"
+				},
+				data : data
+			}
+			return $http(req);
+		}   
+
+		this.allReservations = function(data){
+			var p_url = 'http://' + $location.host() + ':' + $location.port() + '/reservation';
+			req = {
+				method : "POST",
+				url : p_url + '/allReservations',
+				header : {
+					"Content-Type" : "application/json"
+				},
+				data : data
+			}
+			return $http(req);
+		} 
 
 		this.addreservation = function(data){
 			req = {
@@ -47,8 +86,8 @@ app.service('reservationService',['$http','$location',function ($http,$location)
 				data : data
 			}
 			return $http(req);
-		}	
-		
+		}
+
 		this.deleteReservation = function(data){
 			req = {
 				method : "POST",
@@ -59,7 +98,7 @@ app.service('reservationService',['$http','$location',function ($http,$location)
 				data : data
 			}
 			return $http(req);
-		}		
+		}
 
 		this.checkin = function(data){
 			req = {
@@ -71,6 +110,6 @@ app.service('reservationService',['$http','$location',function ($http,$location)
 				data : data
 			}
 			return $http(req);
-		}			
+		}
 
 	}])

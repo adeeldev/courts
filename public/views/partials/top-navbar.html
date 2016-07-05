@@ -11,7 +11,7 @@
         <a class="navbar-brand" ui-sref="app.dashboard"> <img ng-src="{{app.layout.logo}}" alt="{{app.name}}" /> </a>
         <a class="navbar-brand navbar-brand-collapsed" ui-sref="app.dashboard"> <img ng-src="{{app.layout.logoCollapsed}}" alt="" /> </a>
         <button class="btn pull-right menu-toggler visible-xs-block" id="menu-toggler" ng-click="navbarCollapsed = !navbarCollapsed" v-pressable>
-            <i ng-class="navbarCollapsed ? 'fa fa-folder' : 'fa fa-folder-open'"></i> <small><i class="fa fa-caret-down margin-left-5"></i></small>      	
+            <i ng-class="navbarCollapsed ? 'fa fa-folder' : 'fa fa-folder-open'"></i> <small><i class="fa fa-caret-down margin-left-5"></i></small>
         </button>
     </div>
     <!-- end: NAVBAR HEADER -->
@@ -28,7 +28,7 @@
             <li>
                 <a ng-click="goFullscreen()"> <i class="fa fa-expand" ng-show="!isFullscreen"></i> <i class="fa fa-compress" ng-show="isFullscreen"></i></a>
             </li>
-            <li>
+            <!-- <li>
                 <form role="search" class="navbar-form main-search">
                     <div class="form-group">
                         <input type="text" placeholder="{{ 'search.PLACEHOLDER' | translate }}" class="form-control">
@@ -37,12 +37,12 @@
                         </button>
                     </div>
                 </form>
-            </li>
+            </li> -->
         </ul>
         <ul class="nav navbar-right" ct-fullheight="window" data-ct-fullheight-exclusion="header" data-ct-fullheight-if="isSmallDevice">
             <!-- start: MESSAGES DROPDOWN -->
             <!-- /// controller:  'InboxCtrl' -  localtion: assets/js/controllers/InboxCtrl.js /// -->
-            <li class="dropdown" uib-dropdown on-toggle="toggled(open)" ng-controller="InboxCtrl">
+            <!-- <li class="dropdown" uib-dropdown on-toggle="toggled(open)" ng-controller="InboxCtrl">
                 <a href class="dropdown-toggle" uib-dropdown-toggle>
                     <notification-icon count='scopeVariable'>
                         <i class="fa fa-envelope"></i>
@@ -77,10 +77,10 @@
                         <a href="javascript:void(0)" translate="topbar.messages.SEEALL"> See All </a>
                     </li>
                 </ul>
-            </li>
+            </li> -->
             <!-- end: MESSAGES DROPDOWN -->
             <!-- start: ACTIVITIES DROPDOWN -->
-            <li class="dropdown" uib-dropdown on-toggle="toggled(open)">
+            <!-- <li class="dropdown" uib-dropdown on-toggle="toggled(open)">
                 <a href class="dropdown-toggle" uib-dropdown-toggle><i class="fa fa-bell"></i></a>
                 <ul class="dropdown-menu dropdown-light dropdown-messages dropdown-large animated fadeInUpShort">
                     <li>
@@ -98,7 +98,7 @@
                         <a href="javascript:void(0)" translate="topbar.activities.SEEALL"> See All </a>
                     </li>
                 </ul>
-            </li>
+            </li> -->
             <!-- end: ACTIVITIES DROPDOWN -->
             <!-- start: LANGUAGE SWITCHER -->
             <li class="dropdown" uib-dropdown on-toggle="toggled(open)">

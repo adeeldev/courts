@@ -55,7 +55,17 @@ app.constant('JS_REQUIRES', {
         'knobCtrl': 'js/controllers/knobCtrl.js',
         'reservationCtrl': 'js/controllers/reservationController.js',
         'eventCtrl': 'js/controllers/EventController.js',
+        'promotionController': 'js/controllers/promotionController.js',
+        'addModalController': 'js/controllers/addModalController.js',
+        'editModalController': 'js/controllers/editModalController.js',
+        'slotController': 'js/controllers/slotController.js',
+        'adminController': 'js/controllers/adminController.js',
+        'userController': 'js/controllers/userController.js',
+        'promotionService': 'js/resource/promotionService.js',
+        'adminService': 'js/resource/adminService.js',
+        'userService': 'js/resource/userService.js',
         'reservationService': 'js/resource/reservationService.js',
+        'slotService': 'js/resource/slotService.js',
         'eventService': 'js/resource/eventService.js',
     },
     //*** angularJS Modules
@@ -67,7 +77,7 @@ app.constant('JS_REQUIRES', {
         files: ['../../bower_components/angular-bootstrap-nav-tree/dist/abn_tree_directive.js', '../../bower_components/angular-bootstrap-nav-tree/dist/abn_tree.css']
     }, {
         name: 'ngTable',
-        files: ['../../bower_components/ng-table/dist/ng-table.min.js', '../../bower_components/ng-table/dist/ng-table.min.css']
+        files: ['../bower_components/ng-table/dist/ng-table.min.js', '../../bower_components/ng-table/dist/ng-table.min.css']
     }, {
         name: 'ui.mask',
         files: ['../../bower_components/angular-ui-utils/mask.min.js']

@@ -1,6 +1,6 @@
-app.controller('EventController',['$scope','eventService','$uibModal',function ($scope, eventService, $uibModal){
-		var tz = jstz.determine();
-		$scope.timezone = tz.name();
+app.controller('eventCtrl',['$scope','eventService','$uibModal',function ($scope, eventService, $uibModal){
+		// var tz = jstz.determine();
+		// $scope.timezone = tz.name();
 		$scope.message = "Events";
 		$scope.serverMsg = '';
 		$scope.Events = [];
@@ -67,7 +67,7 @@ app.controller('EventController',['$scope','eventService','$uibModal',function (
 		$scope.openEdit = function(size,Event){
 			var modalInstance = $uibModal.open({
 				animation : $scope.animationsEnabled,
-				templateUrl : '/views/editEventModal.html',
+				templateUrl : '/views/app/editEventModal.html',
 				controller : 'editModalController',
 				size : size,
 				resolve : {
@@ -93,7 +93,7 @@ app.controller('EventController',['$scope','eventService','$uibModal',function (
 		$scope.openNew = function(size){
 			var modalInstance = $uibModal.open({
 				animation : $scope.animationsEnabled,
-				templateUrl : '/views/addEventModal.html',
+				templateUrl : '/views/app/addEventModal.html',
 				controller : 'addModalController',
 				size : size,
 				resolve : {

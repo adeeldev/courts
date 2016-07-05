@@ -1,7 +1,7 @@
 {
   "name": "turkeyapp",
   "version": "1.0.0",
-  "description": "Back-end for Turkey Application.",
+  "description": "book court",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,10 +10,12 @@
     "type": "git",
     "url": "git+ssh://git@bitbucket.org/taimoor736/turkey-app.git"
   },
-  "author": "Taimoor Ali",
+  "author": "adeel",
   "license": "ISC",
   "homepage": "https://bitbucket.org/taimoor736/turkey-app#readme",
   "dependencies": {
+    "angular-file-upload": "^2.3.4",
+    "angular-stripe": "^4.2.12",
     "angularjs-datepicker": "^0.2.16",
     "body-parser": "^1.14.1",
     "busboy": "^0.2.12",

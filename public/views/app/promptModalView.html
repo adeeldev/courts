@@ -1,0 +1,21 @@
+<div class="modal-header">
+	<h4 class='modal-title'>{{message}}</h4>
+</div>
+<div class="modal-body" ng-show='isConfirmation'>
+	<h4>Are you sure?</h4>
+</div>
+<div class="modal-body" ng-show='!isConfirmation'>
+	<div ng-form name='myForm'>
+		<div class='form-group'>
+			<label for='password' class="control-label">Enter Password</label>
+			<input type='password' class="form-control" id='password' name='password' autofocus ng-model='password' placeholder='Password' required>
+		</div>
+		<div class='form-group' ng-show='error'>
+			<label for='password' class="control-label bg-danger">{{errorMsg}}</label>
+		</div>
+	</div>
+</div>
+<div class="modal-footer">
+	<button type="button" class="btn btn-default" ng-click='cancel()'>Cancel</button>
+	<button type="button" class="btn btn-success" ng-click='ok(myForm)'>OK</button>
+</div>

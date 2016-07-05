@@ -1,5 +1,4 @@
-angular.module('TurkishApp')
-	.controller('UserController',['$scope','$rootScope','$location','userService', '$uibModal', function ($scope,$rootScope,$location,userService,$uibModal ){
+app.controller('UserController',['$scope','$rootScope','$location','userService', '$uibModal', function ($scope,$rootScope,$location,userService,$uibModal ){
 		$scope.users = [];
 		$scope.message = 'Hello world';
 		$scope.fields = ["username","email","city","telephone"];

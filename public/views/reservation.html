@@ -1,101 +1,254 @@
-<div class="container-fluid container-fullw">
-    <div class="row">
-                 <div class="panel-body">
-                    <div class="row margin-top-10">
- 
-                        <div class="col-lg-12">
-                            <div class="panel panel-white">
-                                <div class="panel-heading">
-                                    <h5 class="panel-title">Add Reservation</h5>
-                                </div>
-                                <div class="panel-body">
-                                    <form role="form" class="form-inline" name="reserve">
-                                        <div class="form-group">
-                                            <div class="input-group">
-                                                <input type="text" placeholder="Name" ng-model="reserve.name" id="name" class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-        
-                                            <div class="input-group">
-                                               <input date-time name="pickerMinDate" class="form-control" ng-model="dates.today" id="pickerMinDate" min-date="minDate" view="date" min-view="hours" format="MM-DD-YYYY hh:mm a">
-                                            </div>
-                                        </div>
-                                       <div class="form-group">
-                                            <select class="js-example-basic-hide-search js-states form-control" ng-model="reserve.court">
-                                                    <option value="">court name</option>
-                                                    <option value="court1">court1</option>
-                                                    <option value="court2">court2</option>
-                                                    <option value="court3">court3</option>
-                                                    <option value="court4">court4</option>
-                                                </optgroup>
-                                            </select>
-                                        </div>                                        <br><br>
-                                        <div class="form-group">
-                                            <div class="input-group">
-                                                <input type="text" placeholder="Phone Number" ng-model="reserve.number" id="number" class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <select class="js-example-basic-hide-search js-states form-control" ng-model="reserve.sTime">
-                                                    <option value="">Start Time</option>
-                                                    <option value="1pm">1 AM</option>
-                                                    <option value="2 pm">2 AM</option>
-                                                    <option value="3 pm">3 AM </option>
-                                                    <option value="4 pm">4 AM</option>
-                                                    <option value="5 pm">5 AM</option>
-                                                    <option value="6 pm">6 AM</option>
-                                                    <option value="7 pm">7 AM</option>
-                                                    <option value="8 pm">8 AM</option>
-                                                    <option value="9 pm">9 AM</option>
-                                                    <option value="10 pm">10 AM</option>
-                                                    <option value="11 pm">11 AM</option>
-                                                    <option value="12 pm">12 AM</option>
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <select class="form-control" ng-model="reserve.eTime">
-                                                    <option value="">End Time</option>
-                                                    <option value="1 pm">1 AM</option>
-                                                    <option value="2 pm">2 AM</option>
-                                                    <option value="3 pm">3 AM </option>
-                                                    <option value="4 pm">4 AM</option>
-                                                    <option value="5 pm">5 AM</option>
-                                                    <option value="6 pm">6 AM</option>
-                                                    <option value="7 pm">7 AM</option>
-                                                    <option value="8 pm">8 AM</option>
-                                                    <option value="9 pm">9 AM</option>
-                                                    <option value="10 pm">10 AM</option>
-                                                    <option value="11 pm">11 AM</option>
-                                                    <option value="12 pm">12 AM</option>
-                                            </select>
-                                        </div>  <br><br>
-                                        <div class="form-group">
-                                            <div class="input-group">
-                                                <input type="text" placeholder="Advance Payment" ng-model="reserve.advancePayment" id="advancePayment" class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="input-group">
-                                                <input type="text" placeholder="Remaining Payment" ng-model="reserve.remainingPayment" id="remainingPayment" class="form-control">
-                                            </div>
-                                        </div> <br><br>
-                                        <div class="form-group">
-        
-                                            <div class="input-group">
-                                               <textarea placeholder="Add Notes" ng-model="reserve.notes" id="notes" class="form-control"></textarea>
-                                            </div>
-                                        </div>                                                 
-
-                                        <button class="btn btn-primary" type="submit" ng-click="addReservation(reserve,dates.today)">
-                                            Add Reservation
-                                        </button>
-                                    </form>
-                                </div>
+<div class="container-fluid container-fullw" ng-controller="reservationCtrl">
+    <div class="col-md-12">
+        <fieldset>
+                <legend>
+                        <b>Reservaion Information</b>
+                </legend>
+                <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                    <label class="text-bold">
+                                        Select Court
+                                    </label>
+                                    <select class="cs-select cs-skin-elastic" ng-options="court.title for court in courts" ng-model="event.court">
+                                        <option value="" disabled="">Select</option>
+                                    </select>
                             </div>
                         </div>
-                    </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                    <label class="text-bold">
+                                            Email
+                                    </label>
+                                    <input type="text" placeholder="Enter Email" class="form-control" ng-model="event.email">
+                            </div>
+                        </div>
+                </div>
+                <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                    <label class="text-bold">
+                                            Phone Number
+                                    </label>
+                                    <input type="text" placeholder="Enter Number" class="form-control" ng-model="event.number">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                    <label class="text-bold">
+                                            Slot title
+                                    </label>
+                                    <input type="text" placeholder="Enter slot title" class="form-control" ng-model="event.title">
+                            </div>
+                        </div>
+                </div>
+                <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                    <label class="text-bold">
+                                            Start Date
+                                    </label>
+                                    <span class="input-icon">
+                                            <input type="text" class="form-control" ng-click="startOpen = !startOpen" show-weeks="false" uib-datepicker-popup="fullDate" ng-model="event.startsAt" is-open="startOpen" ng-init="startOpen = false" max-date="event.endsAt" close-text="Close" />
+                                            <i class="ti-calendar"></i>
+                                    </span>
+                                    <uib-timepicker ng-model="event.startsAt" show-meridian="true" ng-show="!event.allDay"></uib-timepicker>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                    <label class="text-bold">
+                                            End Date
+                                    </label>
+                                    <span class="input-icon">
+                                            <input type="text" class="form-control" ng-click="endOpen = !endOpen" show-weeks="false" uib-datepicker-popup="fullDate" ng-model="event.endsAt" is-open="endOpen" ng-init="endOpen = false" min-date="event.startsAt" close-text="Close" />
+                                            <i class="ti-calendar"></i>
+                                    </span>
+                                    <uib-timepicker ng-model="event.endsAt" show-meridian="true" ng-show="!event.allDay"></uib-timepicker>
+                            </div>
+                        </div>
+                </div>
+                <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                    <label class="text-bold">
+                                            Advance Payment
+                                    </label>
+                                    <input type="text" placeholder="Advance Payment" class="form-control" ng-model="event.advance">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                    <label class="text-bold">
+                                            Remaining Payment
+                                    </label>
+                                    <input type="text" placeholder="Enter Remainig Payment" class="form-control" ng-model="event.remaining">
+                            </div>
+                        </div>
+                </div>
+        </fieldset>
+
+    <div class="col-md-12">
+        <fieldset>
+                <legend>
+                        <b>Personal Information</b>
+                </legend>
+                <div class="row">
+                        <div class="col-md-6">
+                                <div class="form-group">
+                                        <label>
+                                                First Name
+                                        </label>
+                                        <input type="text" name="firstName" ng-model="event.f_name" class="form-control" placeholder="Enter your First Name">
+                                </div>
+                        </div>
+                        <div class="col-md-6">
+                                <div class="form-group">
+                                        <label class="control-label">
+                                                Last Name
+                                        </label>
+                                        <input type="text" name="lastName" ng-model="event.l_name" class="form-control" placeholder="Enter your Last Name">
+                                </div>
+                        </div>
+                </div>
+                <div class="row">
+                        <div class="col-md-12">
+                                <div class="form-group">
+                                        <label>
+                                                Address
+                                        </label>
+                                        <input type="text" name="firstName" ng-model="event.address" class="form-control" placeholder="Enter your Address">
+                                </div>
+                        </div>
+                </div>
+                <div class="row">
+                        <div class="col-md-6">
+                                <div class="form-group">
+                                        <label>
+                                                City
+                                        </label>
+                                        <input type="text" name="firstName" ng-model="event.city" class="form-control" placeholder="Enter your City">
+                                </div>
+                        </div>
+                        <div class="col-md-6">
+                                <div class="form-group">
+                                        <label class="control-label">
+                                                Postal Code
+                                        </label>
+                                        <input type="text" name="p_code" ng-model="event.p_code" class="form-control" placeholder="Enter your Postal Code">
+                                </div>
+                        </div>
+                </div>
+                <div class="row">
+                        <div class="col-md-6">
+                                <div class="form-group">
+                                        <label>
+                                                State
+                                        </label>
+                                        <input type="text" name="state" ng-model="event.state" class="form-control" placeholder="Enter your State">
+                                </div>
+                        </div>
+                        <div class="col-md-6">
+                                <div class="form-group">
+                                        <label class="control-label">
+                                                Province
+                                        </label>
+                                        <input type="text" name="province" ng-model="event.province" class="form-control" placeholder="Enter your Province">
+                                </div>
+                        </div>
+                </div>
+                <div class="row">
+                        <div class="col-md-12">
+                                <div class="form-group">
+                                        <label>
+                                                Notes
+                                        </label>
+                                        <textarea class="form-control autosize area-animated msd-elastic: \n;" ng-model="event.notes" ></textarea>
+                                </div>
+                        </div>
+                </div>                
+
+        </fieldset>
+        <fieldset>
+                <legend>
+                        Terms &amp; Condition
+                </legend>
+                <div class="row">
+                        <div class="col-md-12">
+                                <div class="form-group">
+                                        <div class="checkbox clip-check check-primary">
+                                                <input type="checkbox" id="read-condition" value="1">
+                                                <label for="read-condition">
+                                                        I read and accept the terms and conditions
+                                                </label>
+                                        </div>
+                                </div>
+                        </div>
+                </div>
+        </fieldset>
+        <div>
+    <button type="button" class="btn btn-default" ng-click='cancel()'>Close</button>
+    <button type="button" class="btn btn-primary" ng-click='addReservation(event)'>Save changes</button>
+</div>
     </div>
 </div>
 </div>
+</div>
+</div>
+</div>
+</div>
+        <!-- <div class="form-group">
+                <label>
+                        Category
+                </label>
+                <div class="row">
+                        <div class="col-xs-12">
+                                <div class="radio clip-radio radio-primary">
+                                        <input type="radio" id="job" name="optionsCategory" value="job" ng-model="event.type">
+                                        <label for="job">
+                                                <span class="fa fa-circle text-primary"></span> Job
+                                        </label>
+                                </div>
+                                <div class="radio clip-radio radio-primary">
+                                        <input type="radio" id="home" name="optionsCategory" value="home" ng-model="event.type">
+                                        <label for="home">
+                                                <span class="fa fa-circle text-purple"></span> Home
+                                        </label>
+                                </div>
+                                <div class="radio clip-radio radio-primary">
+                                        <input type="radio" id="off-site-work" name="optionsCategory" value="off-site-work" ng-model="event.type">
+                                        <label for="off-site-work">
+                              <div>
+    <button type="button" class="btn btn-default" ng-click='cancel()'>Close</button>
+    <button type="submit" class="btn btn-primary" ng-click='addreservation(event)'>Save changes</button>
+</div>                  <span class="fa fa-circle text-green"></span> Off site
+                                        </label>
+                                </div>
+                                <div class="radio clip-radio radio-primary">
+                                        <input type="radio" id="cancelled" name="optionsCategory" value="cancelled" ng-model="event.type">
+                                        <label for="cancelled">
+                                                <span class="fa fa-circle text-yellow"></span> Cancelled
+                                        </label>
+                                </div>
+                                <div class="radio clip-radio radio-primary">
+                                        <input type="radio" id="generic" name="optionsCategory" value="generic" ng-model="event.type">
+                                        <label for="generic">
+                                                <span class="fa fa-circle text-info"></span> Generic
+                                        </label>
+                                </div>
+                                <div class="radio clip-radio radio-primary">
+                                        <input type="radio" id="to-do" name="optionsCategory" value="to-do" ng-model="event.type">
+                                        <label for="to-do">
+                                                <span class="fa fa-circle text-orange"></span> ToDo
+                                        </label>
+                                </div>
+                        </div>
+                </div>
+        </div> -->
+</div>
+<!-- <div>
+    <button type="button" class="btn btn-default" ng-click='cancel()'>Close</button>
+    <button type="submit" class="btn btn-primary" ng-click='addreservation(event)'>Save changes</button>
+</div> -->
 
+</div>

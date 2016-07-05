@@ -1,5 +1,5 @@
 <!--start: MAIN NAVIGATION MENU -->
-<!-- <div class="navbar-title">
+ <div class="navbar-title">
     <span translate="sidebar.heading.NAVIGATION">Main Navigation</span>
 </div>
 <ul class="main-navigation-menu">
@@ -15,7 +15,7 @@
             </div>
         </a>
     </li>
-    <li ng-class="{'active open':$state.includes('app.pagelayouts')}">
+<!--     <li ng-class="{'active open':$state.includes('app.pagelayouts')}">
         <a href="javascript:void(0)">
             <div class="item-content">
                 <div class="item-media">
@@ -43,8 +43,8 @@
                 <a ui-sref="app.pagelayouts.boxedpage"> <span class="title" translate="sidebar.nav.pagelayouts.BOXEDPAGE"> Boxed Page </span> </a>
             </li>
         </ul>
-    </li>
-    <li ui-sref-active="active">
+    </li> -->
+<!--     <li ui-sref-active="active">
         <a ui-sref="app.layouts">
             <div class="item-content">
                 <div class="item-media">
@@ -55,8 +55,8 @@
                 </div>
             </div>
         </a>
-    </li>
-    <li ng-class="{'active open':$state.includes('app.ui')}">
+    </li> -->
+<!--     <li ng-class="{'active open':$state.includes('app.ui')}">
         <a href="javascript:void(0)">
             <div class="item-content">
                 <div class="item-media">
@@ -120,7 +120,7 @@
                 <a ui-sref="app.ui.typography"> <span class="title" translate="sidebar.nav.element.TYPOGRAPHY"> Typography </span> </a>
             </li>
         </ul>
-    </li>
+    </li> -->
     <li ng-class="{'active open':$state.includes('app.table')}">
         <a href="javascript:void(0)">
             <div class="item-content">
@@ -147,7 +147,7 @@
             </li>
         </ul>
     </li>
-    <li ng-class="{'active open':$state.includes('app.form')}">
+<!--     <li ng-class="{'active open':$state.includes('app.form')}">
         <a href="javascript:void(0)">
             <div class="item-content">
                 <div class="item-media">
@@ -184,8 +184,8 @@
                 <a ui-sref="app.form.upload"> <span class="title" translate="sidebar.nav.forms.UPLOAD">Multiple File Upload</span> </a>
             </li>
         </ul>
-    </li>
-    <li ng-class="{'active open':$state.includes('login')}">
+    </li> -->
+<!--     <li ng-class="{'active open':$state.includes('login')}">
         <a href="javascript:void(0)">
             <div class="item-content">
                 <div class="item-media">
@@ -210,40 +210,96 @@
                 <a ui-sref="login.lockscreen" translate="sidebar.nav.login.LOCKSCREEN"> <span class="title">Lock Screen</span> </a>
             </li>
         </ul>
-    </li>
-    <li ng-class="{'active open':$state.includes('app.pages')}">
+    </li> -->
+    <li ng-class="{'active open':$state.includes('app.promotion')}">
         <a href="javascript:void(0)">
             <div class="item-content">
                 <div class="item-media">
                      <i class="fa fa-laptop"></i>
                 </div>
                 <div class="item-inner">
-                    <span class="title" translate="sidebar.nav.pages.MAIN"> Pages </span><i class="icon-arrow"></i>
+                    <span class="title"> Courts </span><i class="icon-arrow"></i>
                 </div>
             </div>
         </a>
         <ul class="sub-menu">
             <li ui-sref-active="active">
-                <a ui-sref="app.pages.user"> <span class="title" translate="sidebar.nav.pages.USERPROFILE">User Profile</span> </a>
-            </li>
-            <li ui-sref-active="active">
-                <a ui-sref="app.pages.invoice"> <span class="title" translate="sidebar.nav.pages.INVOICE">Invoice</span> </a>
-            </li>
-            <li ui-sref-active="active">
-                <a ui-sref="app.pages.timeline"> <span class="title" translate="sidebar.nav.pages.TIMELINE">Timeline</span> </a>
-            </li>
-            <li ui-sref-active="active">
-                <a ui-sref="app.pages.calendar"> <span class="title" translate="sidebar.nav.pages.CALENDAR">Calendar</span> </a>
-            </li>
-            <li ui-sref-active="active">
-                <a ui-sref="app.pages.messages"> <span class="title" translate="sidebar.nav.pages.MESSAGES">Messages</span> </a>
-            </li>
-            <li ui-sref-active="active">
-                <a ui-sref="app.pages.blank"> <span class="title" translate="sidebar.nav.pages.BLANKPAGE">Blank Page</span> </a>
+                <a ui-sref="app.promotion"> <span class="title">View Courts</span> </a>
             </li>
         </ul>
     </li>
-    <li ng-class="{'active open':$state.includes('app.utilities')}">
+    <li ng-class="{'active open':$state.includes('app.reservation')}">
+        <a href="javascript:void(0)">
+            <div class="item-content">
+                <div class="item-media">
+                     <i class="fa fa-laptop"></i>
+                </div>
+                <div class="item-inner">
+                    <span class="title"> Reservation </span><i class="icon-arrow"></i>
+                </div>
+            </div>
+        </a>
+        <ul class="sub-menu">
+            <li ui-sref-active="active">
+                <a ui-sref="app.allreservation"> <span class="title">View Reservations</span> </a>
+            </li>
+<!--             <li ui-sref-active="active">
+                <a ui-sref="app.reservation"> <span class="title">Today's Reservation</span> </a>
+            </li> -->
+        </ul>
+    </li>
+    <li ng-class="{'active open':$state.includes('app.reservation')}">
+        <a href="javascript:void(0)">
+            <div class="item-content">
+                <div class="item-media">
+                     <i class="fa fa-laptop"></i>
+                </div>
+                <div class="item-inner">
+                    <span class="title"> Make Reservation </span><i class="icon-arrow"></i>
+                </div>
+            </div>
+        </a>
+        <ul class="sub-menu">
+            <li ui-sref-active="active">
+                <a ui-sref="app.reservation"> <span class="title">Make Reservation</span> </a>
+            </li>
+        </ul>
+    </li>    
+   <li ng-class="{'active open':$state.includes('app.users')}">
+        <a href="javascript:void(0)">
+            <div class="item-content">
+                <div class="item-media">
+                     <i class="fa fa-laptop"></i>
+                </div>
+                <div class="item-inner">
+                    <span class="title"> Users </span><i class="icon-arrow"></i>
+                </div>
+            </div>
+        </a>
+        <ul class="sub-menu">
+            <li ui-sref-active="active">
+                <a ui-sref="app.users"> <span class="title">View Users</span> </a>
+            </li>
+        </ul>
+    </li>
+    <li ng-class="{'active open':$state.includes('app.admin')}">
+        <a href="javascript:void(0)">
+            <div class="item-content">
+                <div class="item-media">
+                     <i class="fa fa-laptop"></i>
+                </div>
+                <div class="item-inner">
+                    <span class="title"> Admins </span><i class="icon-arrow"></i>
+                </div>
+            </div>
+        </a>
+        <ul class="sub-menu">
+            <li ui-sref-active="active">
+                <a ui-sref="app.admin"> <span class="title">View Admins</span> </a>
+            </li>
+        </ul>
+    </li>
+    <!-- <li ng-class="{'active open':$state.includes('app.utilities')}">
         <a href="javascript:void(0)">
             <div class="item-content">
                 <div class="item-media">
@@ -268,8 +324,8 @@
                 <a ui-sref="app.utilities.pricing"> <span class="title" translate="sidebar.nav.utilities.PRICING">Pricing Table</span> </a>
             </li>
         </ul>
-    </li>
-    <li>
+    </li> -->
+<!--     <li>
         <a href="javascript:void(0)">
             <div class="item-content">
                 <div class="item-media">
@@ -374,8 +430,8 @@
                         </ul>
                     </li>
                 </ul>
-            </li>
-            <li>
+            </li> -->
+<!--             <li>
                 <a href="javascript:;"> <span translate="sidebar.nav.4level.Item3.MAIN">Item 3</span> <i class="icon-arrow"></i> </a>
                 <ul class="sub-menu">
                     <li>
@@ -423,8 +479,8 @@
                 </ul>
             </li>
         </ul>
-    </li>
-    <li ui-sref-active="active">
+    </li> -->
+    <!-- <li ui-sref-active="active">
         <a ui-sref="app.maps">
             <div class="item-content">
                 <div class="item-media">
@@ -447,14 +503,14 @@
                 </div>
             </div>
         </a>
-    </li>
-</ul> -->
+    </li> -->
+</ul>
 <!-- end: MAIN NAVIGATION MENU -->
 <!-- start: FEATURES -->
-<!-- <div class="navbar-title">
+ <!-- <div class="navbar-title">
     <span translate="sidebar.heading.FEATURES">Core Features</span>
-</div> -->
-<!-- <ul class="folders">
+</div>
+<ul class="folders">
     <li>
         <a ui-sref="landing.welcome">
             <div class="item-content">
@@ -466,8 +522,8 @@
                 </div>
             </div>
         </a>
-    </li>
-    <li>
+    </li> -->
+    <!-- <li>
         <a href="http://www.cliptheme.com/demo/packet/LAYOUT-RTL-2/" target="_blank">
             <div class="item-content">
                 <div class="item-media">
@@ -478,6 +534,6 @@
                 </div>
             </div>
         </a>
-    </li>
-</ul> -->
+    </li> -->
+<!-- </ul> -->
 <!-- end: FEATURES

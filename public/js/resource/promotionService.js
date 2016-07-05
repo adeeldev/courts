@@ -1,5 +1,4 @@
-angular.module('TurkishApp')
-	.service('promotionService',['$http','$location',function ($http,$location){
+app.service('promotionService',['$http','$location',function ($http,$location){
 
 		var URL = "http://" + $location.host() + ':' + $location.port() + "/court";
 		var req = {};
@@ -10,7 +9,7 @@ angular.module('TurkishApp')
 				header : {
 					"Content-Type" : "application/json"
 				},
-				data : data				
+				data : data
 			}
 			return $http(req);
 		}
@@ -25,8 +24,8 @@ angular.module('TurkishApp')
 				data : data
 			}
 			return $http(req);
-		}	
-		
+		}
+
 		this.deletePromotion = function(data){
 			req = {
 				method : "POST",
@@ -37,7 +36,7 @@ angular.module('TurkishApp')
 				data : data
 			}
 			return $http(req);
-		}  		
+		}
 
 		this.getSubAdmins = function(){
 			var req = {
@@ -48,6 +47,6 @@ angular.module('TurkishApp')
 					}
 				}
 				return $http(req);
-			}	
+			}
 
 	}])

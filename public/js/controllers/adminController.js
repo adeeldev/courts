@@ -1,9 +1,11 @@
-angular.module('TurkishApp')
-	.controller('adminController',['$scope','$location','$uibModal','$rootScope','adminService','$cookies','userService',function ($scope,$location,$uibModal,$rootScope,adminService,$cookies,userService){
+app.controller('adminController',['$scope','$location','$uibModal','$rootScope','adminService','$cookies','userService',function ($scope,$location,$uibModal,$rootScope,adminService,$cookies,userService){
 		$scope.animationsEnabled = true;
-		$scope.fields = ["username","email","type","created"]; 
+		$scope.fields = ["username","email","type","created"];
 		$scope.error = false;
+
+		console.log('loading admin controller');
 		$scope.login = function login(){
+			console.log('in admin controller');
 			adminService.login($scope.Admin)
 				.then(function (result){
 					//console.log(result.data[0]._id);
@@ -19,7 +21,7 @@ angular.module('TurkishApp')
 					$scope.uid = $cookies.get('user');
 					$scope.type = $cookies.get('type');
 					$rootScope.typei = $scope.type;
-					$location.path('/promotion');
+					$location.path('/app/courts');
 				})
 				.catch(function (response){
 					$scope.error = true;
@@ -73,7 +75,7 @@ angular.module('TurkishApp')
 			console.log('eeeee');
 			var modalInstance = $uibModal.open({
 				animation : $scope.animationsEnabled,
-				templateUrl : '/views/addEventModal.html',
+				templateUrl : '/views/app/addEventModal.html',
 				controller : 'addModalController',
 				size : size,
 				resolve : {
@@ -94,7 +96,7 @@ angular.module('TurkishApp')
 					$scope.users = success.data;
 				}).catch(function (err){
 					console.log(err);
-				})				
+				})
 			})
 			.then(function (allEvent){
 				console.log(allEvent);
@@ -105,7 +107,7 @@ angular.module('TurkishApp')
 					$scope.Events = success.data;
 				}).catch(function (err){
 					console.log(err);
-				})				
+				})
 			})
 		}
 

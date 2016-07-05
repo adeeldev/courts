@@ -1,0 +1,96 @@
+<div class="modal-header" ng-controller="promotionController">
+	<h4 class="modal-title">Add Court</h4>
+</div>
+<div class="modal-body" ng-form name='myForm'>
+	<div class="form-group" ng-if="errCheck" ><!-- ng-repeat='err in Errors'-->
+		<p class='bg-danger'>{{errCheck}}</p>
+	</div>
+	<div class="form-group">
+		<label class="control-label" for="email">Username</label>
+		<input type="text" name='username' class="form-control" ng-model='Event.username' placeholder='Username' required>
+	</div>
+<!-- 	<div class="form-group">
+		<label class="control-label">Date</label>
+		<input date-time name="pickerMinDate" ng-model="Event.eventDate" id="pickerMinDate" min-date="minDate" view="date" min-view="hours" format="MM-DD-YYYY hh:mm a">
+	</div> -->
+	<div class="form-group">
+    <label class="control-label">Court Title</label>
+    <input placeholder='Location' type="text" class="form-control" name='title' ng-model='promotion.title' required>
+	</div>
+  <div class="form-group">
+    <label class="control-label">Court Description</label>
+    <input placeholder='Description' type="text" class="form-control" name='description' ng-model='promotion.description' required>
+  </div>
+  <div class="form-group">
+    <label class="control-label">Court Location</label>
+    <input placeholder='Location' type="text" class="form-control" name='location' ng-model='promotion.location' required>
+  </div>
+  <div class="form-group">
+    <label class="control-label">Court City</label>
+    <input placeholder='Location' type="text" class="form-control" name='city' ng-model='promotion.city' required>
+  </div>
+  <div class="form-group">
+    <label class="control-label">Number of Slots</label>
+    <input placeholder='Number of Slots' type="text" class="form-control" name='slots' ng-model='promotion.slots' required>
+  </div>
+  <div class="form-group">
+    <div class="row">
+        <div class="col-md-9" style="margin-bottom: 40px">
+            <h3>Upload Court Images. Select more than one image for multiselect</h3>
+            <div class="form-group">
+            <span class="btn btn-default btn-file">
+                Upload<input  type="file" nv-file-select="" uploader="uploader" multiple /><br/>
+            </span>
+            </div>
+            <table class="table">
+                <thead>
+                    <tr>
+                    <th width="50%">Name</th>
+                    <th ng-show="uploader.isHTML5">Size</th>
+                    <!-- <th ng-show="uploader.isHTML5">Progress</th> -->
+                    <!-- <th>Status</th> -->
+                    <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="item in uploader.queue">
+                        <td><strong>{{ item.file.name }}</strong></td>
+                        <td ng-show="uploader.isHTML5" nowrap>{{ item.file.size/1024/1024|number:2 }} MB</td>
+                        <!-- <td ng-show="uploader.isHTML5"> -->
+                        <!-- <div class="progress" style="margin-bottom: 0;"> -->
+                        <!-- <div class="progress-bar" role="progressbar" ng-style="{ 'width': item.progress + '%' }"></div> -->
+                        </div>
+                        </td>
+                        <td class="text-center">
+                            <span ng-show="item.isSuccess"><i class="glyphicon glyphicon-ok"></i></span>
+                            <!-- <span ng-show="item.isCancel"><i class="glyphicon glyphicon-ban-circle"></i></span> -->
+                            <!-- <span ng-show="item.isError"><i class="glyphicon glyphicon-remove"></i></span> -->
+                        </td>
+                        <td nowrap>
+                            <button type="button" class="btn btn-success btn-xs" ng-click="item.upload()" ng-disabled="item.isReady || item.isUploading || item.isSuccess">
+                                <span class="glyphicon glyphicon-upload"></span> Upload
+                            </button>
+                            <button type="button" class="btn btn-warning btn-xs" ng-click="item.cancel()" ng-disabled="!item.isUploading">
+                                <span class="glyphicon glyphicon-ban-circle"></span> Cancel
+                            </button>
+                            <button type="button" class="btn btn-danger btn-xs" ng-click="item.remove()">
+                                <span class="glyphicon glyphicon-trash"></span> Remove
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label">Sub Admins</label>
+    <select ng-model="promotion.username" ng-options="Admins.username for Admins in subAdmins">
+    <option value="">-- choose Sub Admin --</option>
+    </select>
+  </div>
+
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="addPromotion(promotion,user.roles)">Save</button>
+    <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="cancel()">Close</button>
+</div>

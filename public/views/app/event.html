@@ -10,13 +10,13 @@
 	<thead>
 		<tr>
 			<th ng-repeat='head in fields' ng-click='sort(head)'>
-				{{head | labelCase}}
+				<!-- {{head | labelCase}} -->
 				<span ng-show='sort.field === head && !sort.order' class='glyphicon glyphicon-chevron-down'></span>
 				<span ng-show='sort.field === head && sort.order' class='glyphicon glyphicon-chevron-up'></span>
 			</th>
 		</tr>
 	</thead>
-	<tbody ng-if='noEvent == true'>  
+	<tbody ng-if='noEvent == true'>
 		<tr>
 			<td colspan="6">No Data Found.</td>
 		</tr>

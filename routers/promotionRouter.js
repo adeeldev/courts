@@ -23,7 +23,7 @@ router
 					return response.status(500).send({"message" : "Internal server error.","code": "PE-ALL","err" : err}).end();
 				}
 				if(result.length==0){
-					return response.status(200).send({"message" : "No data found."}).end();	
+					return response.status(200).send({"message" : "No data found."}).end();
 				}
 				response.status(200).send(result).end();
 			})
@@ -35,7 +35,7 @@ router
 				return response.status(500).send({"message" : "Internal server error.","code": "PE-ALL","err" : err}).end();
 			}
 			if(result.length==0){
-				return response.status(200).send({"message" : "No data found."}).end();	
+				return response.status(200).send({"message" : "No data found."}).end();
 			}
 			response.status(200).send(result).end();
 		})
@@ -51,24 +51,24 @@ router
 				return response.status(500).send({"message" : "Internal server error.","code": "PE-ALL","err" : err}).end();
 			}
 			if(result.length==0){
-				return response.status(200).send({"message" : "No data found."}).end();	
+				return response.status(200).send({"message" : "No data found."}).end();
 			}
 			response.status(200).send({'data': result}).end();
 		})
-	})	
+	})
 	.get('/locations',function (request,response){
-		promotionModel.find({}).select('location _id').exec(function (err, result) { 
+		promotionModel.find({}).select('location _id').exec(function (err, result) {
 		//promotionModel.find({},{'__v': 0},function (err,result){
 			if(err){
 				console.log(err);
 				return response.status(500).send({"message" : "Internal server error.","code": "PE-ALL","err" : err}).end();
 			}
 			if(result.length==0){
-				return response.status(200).send({"message" : "No data found."}).end();	
+				return response.status(200).send({"message" : "No data found."}).end();
 			}
 			response.status(200).send({'data': result}).end();
 		})
-	})		
+	})
 	.get('/allCourts',function (request,response){
 		var date = Date.now();
 		promotionModel.find({},{'__v' : 0}).sort({date : '-1'}).exec(function	(err,result){
@@ -77,8 +77,9 @@ router
 				return response.status(500).send({"message" : "Internal server error.","code": "PE-ALL","err" : err}).end();
 			}
 			if(result.length==0){
-				return response.status(200).send({"message" : "No data found."}).end();	
+				return response.status(200).send({"message" : "No data found."}).end();
 			}
+			console.log(result);
 			response.status(200).send({'data': result}).end();
 		})
 	})
@@ -90,11 +91,11 @@ router
 				return response.status(500).send({"message" : "Internal server error.","code": "PE-ALL","err" : err}).end();
 			}
 			if(result.length==0){
-				return response.status(200).send({"message" : "No data found."}).end();	
+				return response.status(200).send({"message" : "No data found."}).end();
 			}
 			response.status(200).send({result}).end();
 		})
-	})	
+	})
 	.get('/:userid',function (request,response){
 		var date = Date.now();
 		var userid = request.params.userid;
@@ -104,11 +105,11 @@ router
 				return response.status(500).send({"message" : "Internal server error.","code": "PE-ALL","err" : err}).end();
 			}
 			if(result.length==0){
-				return response.status(200).send({"message" : "No data found."}).end();	
+				return response.status(200).send({"message" : "No data found."}).end();
 			}
 			response.status(200).send({'data': result}).end();
 		})
-	})	
+	})
 	.get('/:id', function(request,response){
 		var id = request.params.id;
 		if(id == '' || null){
@@ -116,15 +117,15 @@ router
 		}
 		promotionModel.findOne({"_id" : id},{'__v': 0},function (err,promotion){
 			if(err){
-				return response.status(500).send({"message" : "Internal server error.","code": "PE-One", "err" : err}).end();	
+				return response.status(500).send({"message" : "Internal server error.","code": "PE-One", "err" : err}).end();
 			}
 			if(promotion == null){
-				return response.status(200).send({"message" : "No data found."}).end();	
+				return response.status(200).send({"message" : "No data found."}).end();
 			}
-			response.status(200).send(promotion).end();	
+			response.status(200).send(promotion).end();
 		})
 	})
-	
+
 	.get('/allCourts',function (request,response){
 		var date = Date.now();
 		promotionModel.find({},{'__v' : 0}).sort({date : '-1'}).exec(function	(err,result){
@@ -133,11 +134,27 @@ router
 				return response.status(500).send({"message" : "Internal server error.","code": "PE-ALL","err" : err}).end();
 			}
 			if(result.length==0){
-				return response.status(200).send({"message" : "No data found."}).end();	
+				return response.status(200).send({"message" : "No data found."}).end();
 			}
 			response.status(200).send({'data': result}).end();
 		})
-	})	
+	})
+
+	.post('/courts',function (request,response){
+		var date = Date.now();
+		promotionModel.find({},{'title' : 1}).sort({date : '-1'}).exec(function	(err,result){
+			if(err){
+				console.log(err);
+				return response.status(500).send({"message" : "Internal server error.","code": "PE-ALL","err" : err}).end();
+			}
+			if(result.length==0){
+				return response.status(200).send({"message" : "No data found."}).end();
+			}
+			console.log(result);
+			response.status(200).send(result).end();
+		})
+	})
+
 	.post('/addCourtAdmin',multipartMiddleware,function (request,response){
 		var description = request.body.description,
 			title = request.body.title,
@@ -165,7 +182,7 @@ router
 						"userid" : userid,
 						"user_email" : user_email
 					});
-			
+
 					newProm.save(function (error,result){
 						if (error) {
 							return response.status(500).send({"message" : "Internal Server error. Please try again later.", "err" : error}).end();

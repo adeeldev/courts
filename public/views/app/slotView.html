@@ -27,7 +27,7 @@
     </tbody>
 	<tbody ng-if='slot.length != 0'>
 	<tr ng-repeat='slot in slots'>
-  
+
     <td>{{slot.created | date:'MM-dd-yyyy hh:mm a'}}</td>
     <td>{{slot.startDate | date:"h:mma"}} to {{slot.endDate | date:"h:mma"}}</td>
     <td>{{slot.title}}</td>
@@ -72,7 +72,7 @@
 <div class="modal-body">
     <label class="control-label">Court Price</label>
     <input placeholder='Price' type="text" class="form-control" name='price' ng-model='addslot.price' required>
-</div>  
+</div>
 <div class="modal-body">
     <label class="control-label">Court Type</label>
     <select class="form-control" ng-model="addslot.size">
@@ -80,7 +80,7 @@
       <option value="11x11">11x11</option>
       <option value="12x12">12x12</option>
     </select>
-</div>  
+</div>
 <!-- <div class="modal-body">
     <label class="control-label">Number of Slots</label>
     <input placeholder='Number of Slots' type="text" class="form-control" name='slots' ng-model='addslot.slots' required>
@@ -88,14 +88,14 @@
 <div class="modal-body">
     <label ng-repeat="role in roles">
         <input  type="checkbox" data-checklist-model="user.roles" data-checklist-value="role"> {{role.name}}</label>
-</div>  
+</div>
 <div class="modal-body">
     <label class="control-label">Court Number</label>
     <select class="form-control" ng-model="addslot.no">
       <option value="">Select Slot</option>
       <option value="{{n.no}}" ng-repeat="n in slots_array">{{n.no}}</option>
     </select>
-</div> 
+</div>
 
 
 
@@ -112,7 +112,7 @@
 
 
 <!-- Modal -->
-<div class="modal fade" id="book" role="dialog" ng-controller="bookingController">
+<div class="modal fade" id="book" role="dialog" >
 <div class="modal-dialog">
 <div class="modal-content">
 <div class="modal-header" >

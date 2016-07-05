@@ -5,7 +5,7 @@
   <button class="btn btn-primary btn-md pull-right" ng-click="openNew('lg');"><span class='glyphicon glyphicon-plus'></span>Add Sub Admin</button>
 </p> -->
 <!-- <input type='search' class="form-control" placeholder='Search' ng-model='query' autofocus='autofocus'/> -->
-<table class="table table-striped table-hover ">
+<!-- <table class="table table-striped table-hover ">
   <thead>
     <tr>
       <th ng-repeat='head in fields' ng-click='sort(head)'>
@@ -23,4 +23,49 @@
       <td>{{user.telephone}}</td>
     </tr>
   </tbody>
-</table>
+</table> -->
+
+
+
+<div class="container-fluid container-fullw">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-white">
+                <div class="panel-body">
+                    <table class="table table-striped table-hover" id="sample-table-3">
+                        <thead>
+                          <tr>
+                            <th>Username</th>
+                            <th>City</th>
+                            <th>Email</th>
+                            <th>Telephone</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat='user in users |filter:query | orderBy : sort.field : sort.order' ng-click='getInfo(user)'>
+                                <td>{{user.username}}</td>
+                                <td class="hidden-xs">{{user.city}}</td>
+                                <td class="hidden-xs"><a href="#" rel="nofollow" target="_blank">{{user.email}}</a></td>
+                                <td class="hidden-xs">{{user.telephone}}</td>
+<!--                                 <td class="center">
+                                    <div class="visible-md visible-lg hidden-sm hidden-xs">
+                                        <a href="#" class="btn btn-transparent btn-xs" tooltip-placement="top" uib-tooltip="Edit"><i class="fa fa-pencil"></i></a>
+                                        <a href="#" class="btn btn-transparent btn-xs tooltips" tooltip-placement="top" uib-tooltip="Share"><i class="fa fa-share"></i></a>
+                                        <a href="#" class="btn btn-transparent btn-xs tooltips" tooltip-placement="top" uib-tooltip="Remove"><i class="fa fa-times fa fa-white"></i></a>
+                                    </div>
+                                    <div class="visible-xs visible-sm hidden-md hidden-lg">
+                                        <div class="btn-group" uib-dropdown>
+                                            <button type="button" class="btn btn-primary btn-sm dropdown-toggle" uib-dropdown-toggle>
+                                                <i class="fa fa-cog"></i>&nbsp;<span class="caret"></span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </td> -->
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

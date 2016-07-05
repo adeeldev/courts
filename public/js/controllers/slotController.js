@@ -1,10 +1,9 @@
-angular.module('TurkishApp')
-	.controller('slotController',['$scope','$uibModal', 'slotService' , 'FileUploader' , '$location','$cookies','$rootScope', function ($scope, $uibModal, slotService,  FileUploader, $location , $cookies, $rootScope){
+app.controller('slotController',['$scope','$uibModal', 'slotService' , 'FileUploader' , '$location','$cookies','$rootScope', function ($scope, $uibModal, slotService,  FileUploader, $location , $cookies, $rootScope){
 		$scope.message = "Slots";
 		$scope.animationsEnabled = true;
     $scope.url = $location.host();
     $scope.port = $location.port();
-    $scope.base_url = 'http://'+$scope.url+':'+$scope.port+'/images/';	
+    $scope.base_url = 'http://'+$scope.url+':'+$scope.port+'/images/';
     $scope.uid = $cookies.get('user');
     $scope.userType = $cookies.get('type');
     $scope.email = $cookies.get('email');
@@ -18,17 +17,17 @@ angular.module('TurkishApp')
         {id: 2, name: 'Indoor' , url : 'http://104.236.44.223:3500/images/indoor@2x.png'},
         {id: 3, name: 'Toilets' , url : '"http://104.236.44.223:3500/images/toilet@2x.png'},
         {id: 4, name: 'Lights', url : 'http://104.236.44.223:3500/images/lights@2x.png'},
-      ];    
+      ];
       $scope.user = {
         roles: [$scope.roles[1]]
-      };    
+      };
     $scope.slots_array = [];
     for (var i = 1; i <= $scope.slot; i++) {
         $scope.slots_array.push({'no': i});
     };
     console.log($scope.slots_array);
 	$scope.getSlots = function(){
-        var courtid = {'courtid' : $scope.court_id } 
+        var courtid = {'courtid' : $scope.court_id }
 		slotService.getSlot(courtid)
 		.then(function (result){
 			if(result.data.message == "No data found."){
@@ -44,7 +43,7 @@ angular.module('TurkishApp')
 		})
 		.catch(function (err){
 			if(err.status == 500){
-				$scope.serverError = true;				
+				$scope.serverError = true;
 			}
 		})
 	}
@@ -61,25 +60,25 @@ angular.module('TurkishApp')
             facility : facility,
             startDate : moment(startDate).toDate(),
             endDate : moment(endDate).toDate(),
-            status  : 'pending' 
-        }        
+            status  : 'pending'
+        }
         console.log(slotData);
         slotService.addSlot(slotData)
         .then(function (promotionResult){
             if(promotionResult.data.length == 0){
                 $scope.promotionResult = true;
             }else{
-                var courtid = {'courtid' : $scope.court_id } 
+                var courtid = {'courtid' : $scope.court_id }
                 $scope.getSlots(courtid);
             }
         })
         .catch(function (err){
             if(err.status == 500){
-                $scope.serverError = true;              
+                $scope.serverError = true;
             }
         })
 
-    }    
+    }
 
 
     $scope.changeStatus = function(id, status){
@@ -98,7 +97,7 @@ $scope.getSlots();
         })
         .catch(function (err){
             if(err.status == 500){
-                $scope.serverError = true;              
+                $scope.serverError = true;
             }
         })
 
@@ -127,7 +126,7 @@ $scope.getSlots();
             $scope.uploader.clearQueue();
             $scope.image_url = '/images/upload.png';
             jQuery('#file').val('');    //empty the input file value so next time if same file selects then it works
-        }; 
+        };
 
         $scope.uploader.onWhenAddingFileFailed = function(item /*{File|FileLikeObject}*/, filter, options) {
         //console.info('onWhenAddingFileFailed', item, filter, options);
@@ -168,83 +167,83 @@ $scope.getSlots();
         //console.info('onCompleteItem', fileItem, response, status, headers);
             $scope.image_url = fileItem.file.name;
             $scope.promotion_image = fileItem.file.name;
-            
+
         };
         $scope.uploader.onCompleteAll = function() {
             console.info('uploader', $scope.uploader.queue);
-        };    
+        };
 
-        $scope.dates = {
-            today: moment.tz('UTC').hour(12).startOf('h'),
-            end: moment.tz('UTC').hour(12).startOf('h'), //12:00 UTC, today.
-            minDate: moment.tz('UTC').add(-4, 'd').hour(12).startOf('h'), //12:00 UTC, four days ago.
-            maxDate: moment.tz('UTC').add(4, 'd').hour(12).startOf('h'), //12:00 UTC, in four days.
-        };
-          $scope.options = {
-            view: 'date',
-            format: 'lll',
-            maxView: false,
-            minView: 'hours',
-        };
-          $scope.minDate = $scope.dates.minDate;
-          $scope.maxDate = $scope.dates.maxDate;
-          $scope.formats = [
-             "MMMM YYYY",
-             "DD MMM YYYY",
-             "ddd MMM DD YYYY",
-             "D MMM YYYY HH:mm",
-             "lll",
-             "MM-DD-YYYY hh:mm a",
-          ];
-          $scope.timezones = [
-            ['London, UK', 'Europe/London'],
-            ['Hong Kong, China', 'Asia/Hong_Kong'],
-            ['Vancouver, Canada', 'America/Vancouver'],
-          ];
-          $scope.views = ['year', 'month', 'date', 'hours', 'minutes'];
-          $scope.callbackState = 'Callback: Not fired';
-          $scope.changeDate = function (modelName, newDate) {
-            console.log(modelName + ' has had a date change. New value is ' + newDate.format());
-            $scope.callbackState = 'Callback: Fired';
-          }
-          $scope.changeMinMax = function (modelName, newValue) {
-            //minDate or maxDate updated. Generate events to update relevant pickers
-            var values = {
-              minDate: false,
-              maxDate: false,
-            }
-            if (modelName === 'dates.minDate') {
-              values.minDate = newValue;
-              $scope.$broadcast('pickerUpdate', ['pickerMinDate', 'pickerMinDateDiv', 'pickerMaxSelector'], values);
-              values.maxDate = $scope.dates.maxDate;
-            } else if (modelName === 'dates.maxDate') {
-              values.maxDate = newValue;
-              $scope.$broadcast('pickerUpdate', ['pickerMaxDate', 'pickerMaxDateDiv', 'pickerMinSelector'], values);
-              values.minDate = $scope.dates.minDate;
-            }
-            //For either min/max update, update the pickers which use both.
-            $scope.$broadcast('pickerUpdate', ['pickerBothDates', 'pickerBothDatesDiv'], values);
-          }
-          $scope.changeData = function (type) {
-            var values = {},
-                pickersToUpdate = ['pickerMinDate', 'pickerMaxDate', 'pickerBothDates', 'pickerMinDateDiv', 'pickerMaxDateDiv', 'pickerBothDatesDiv', 'pickerRange'];
-            switch (type) {
-              case 'view':
-                values.view = $scope.options.view;
-                break;
-              case 'minView':
-                values.minView = $scope.options.minView;
-                break;
-              case 'maxView':
-                values.maxView = $scope.options.maxView;
-                break;
-              case 'format':
-                values.format = $scope.options.format;
-                break;
-            }
-            if (values) {
-              $scope.$broadcast('pickerUpdate', pickersToUpdate, values);
-            }
-        } 
+        // $scope.dates = {
+        //     today: moment.tz('UTC').hour(12).startOf('h'),
+        //     end: moment.tz('UTC').hour(12).startOf('h'), //12:00 UTC, today.
+        //     minDate: moment.tz('UTC').add(-4, 'd').hour(12).startOf('h'), //12:00 UTC, four days ago.
+        //     maxDate: moment.tz('UTC').add(4, 'd').hour(12).startOf('h'), //12:00 UTC, in four days.
+        // };
+        //   $scope.options = {
+        //     view: 'date',
+        //     format: 'lll',
+        //     maxView: false,
+        //     minView: 'hours',
+        // };
+        //   $scope.minDate = $scope.dates.minDate;
+        //   $scope.maxDate = $scope.dates.maxDate;
+        //   $scope.formats = [
+        //      "MMMM YYYY",
+        //      "DD MMM YYYY",
+        //      "ddd MMM DD YYYY",
+        //      "D MMM YYYY HH:mm",
+        //      "lll",
+        //      "MM-DD-YYYY hh:mm a",
+        //   ];
+        //   $scope.timezones = [
+        //     ['London, UK', 'Europe/London'],
+        //     ['Hong Kong, China', 'Asia/Hong_Kong'],
+        //     ['Vancouver, Canada', 'America/Vancouver'],
+        //   ];
+        //   $scope.views = ['year', 'month', 'date', 'hours', 'minutes'];
+        //   $scope.callbackState = 'Callback: Not fired';
+        //   $scope.changeDate = function (modelName, newDate) {
+        //     console.log(modelName + ' has had a date change. New value is ' + newDate.format());
+        //     $scope.callbackState = 'Callback: Fired';
+        //   }
+        //   $scope.changeMinMax = function (modelName, newValue) {
+        //     //minDate or maxDate updated. Generate events to update relevant pickers
+        //     var values = {
+        //       minDate: false,
+        //       maxDate: false,
+        //     }
+        //     if (modelName === 'dates.minDate') {
+        //       values.minDate = newValue;
+        //       $scope.$broadcast('pickerUpdate', ['pickerMinDate', 'pickerMinDateDiv', 'pickerMaxSelector'], values);
+        //       values.maxDate = $scope.dates.maxDate;
+        //     } else if (modelName === 'dates.maxDate') {
+        //       values.maxDate = newValue;
+        //       $scope.$broadcast('pickerUpdate', ['pickerMaxDate', 'pickerMaxDateDiv', 'pickerMinSelector'], values);
+        //       values.minDate = $scope.dates.minDate;
+        //     }
+        //     //For either min/max update, update the pickers which use both.
+        //     $scope.$broadcast('pickerUpdate', ['pickerBothDates', 'pickerBothDatesDiv'], values);
+        //   }
+        //   $scope.changeData = function (type) {
+        //     var values = {},
+        //         pickersToUpdate = ['pickerMinDate', 'pickerMaxDate', 'pickerBothDates', 'pickerMinDateDiv', 'pickerMaxDateDiv', 'pickerBothDatesDiv', 'pickerRange'];
+        //     switch (type) {
+        //       case 'view':
+        //         values.view = $scope.options.view;
+        //         break;
+        //       case 'minView':
+        //         values.minView = $scope.options.minView;
+        //         break;
+        //       case 'maxView':
+        //         values.maxView = $scope.options.maxView;
+        //         break;
+        //       case 'format':
+        //         values.format = $scope.options.format;
+        //         break;
+        //     }
+        //     if (values) {
+        //       $scope.$broadcast('pickerUpdate', pickersToUpdate, values);
+        //     }
+        // }
 
 	}])

@@ -25,7 +25,7 @@
       // APPLICATION ROUTES
       // -----------------------------------
       // For any unmatched url, redirect to /app/dashboard
-      $urlRouterProvider.otherwise("/app/courts");
+      $urlRouterProvider.otherwise("/login/signin");
       //
       // Set up the states
       $stateProvider.state('app', {
@@ -41,25 +41,55 @@
           ncyBreadcrumb: {
               label: 'Calendar'
           },
-          resolve: loadSequence('reservationService','mwl.calendar', 'calendarCtrl')
+          resolve: loadSequence('angularFileUpload', 'reservationService','selectCtrl', 'mwl.calendar', 'calendarCtrl', 'addModalController')
       }).state('app.reservation', {
           url: "/reservation",
           templateUrl: "views/reservation.html",
           title: 'Reservation',
           controller: 'reservationCtrl',
-          resolve: loadSequence('reservationService','reservationCtrl')
+          resolve: loadSequence('reservationService','reservationCtrl', 'dateRangeCtrl', 'toasterCtrl', 'sweetAlertCtrl', 'notificationIconsCtrl', 'notifyCtrl', 'ngNotify')
+      }).state('app.allreservation', {
+          url: "/allreservation",
+          templateUrl: "views/app/viewReservation.html",
+          title: 'Reservation',
+          controller: 'reservationCtrl',
+          resolve: loadSequence('reservationService','reservationCtrl', 'dateRangeCtrl', 'toasterCtrl', 'sweetAlertCtrl', 'notificationIconsCtrl', 'notifyCtrl', 'ngNotify')
+      }).state('app.courts', {
+          url: "/courts",
+          templateUrl: "views/app/court.html",
+          title: 'Courts',
+          controller: 'reservationCtrl',
+          resolve: loadSequence('reservationService','reservationCtrl', 'dateRangeCtrl', 'toasterCtrl', 'sweetAlertCtrl', 'notificationIconsCtrl', 'notifyCtrl', 'ngNotify')
       }).state('app.event', {
           url: "/event",
           templateUrl: "views/app/event.html",
           title: 'Event',
           controller: 'eventCtrl',
-          resolve: loadSequence('eventService','eventCtrl')
-      }).state('app.courts', {
-          url: "/courts",
-          templateUrl: "views/courts.html",
-          title: 'Reservation',
-          controller: 'reservationCtrl',
-          resolve: loadSequence('reservationService','reservationCtrl')
+          resolve: loadSequence('angularFileUpload', 'eventService',  'editModalController', 'addModalController', 'eventCtrl')
+      }).state('app.promotion', {
+          url: "/promotion",
+          templateUrl: "views/app/promotionView.html",
+          title: 'Event',
+          controller: 'promotionController',
+          resolve: loadSequence('angularFileUpload', 'asideCtrl',  'promotionService', 'addModalController', 'promotionController')
+      }).state('app.slots', {
+          url: "/slots/:id/:slots/",
+          templateUrl: "views/app/slotView.html",
+          title: 'court',
+          controller: 'slotController',
+          resolve: loadSequence('angularFileUpload', 'slotService', 'slotController')
+      }).state('app.users', {
+          url: "/users",
+          templateUrl: "views/app/userView.html",
+          title: 'Users',
+          controller: 'UserController',
+          resolve: loadSequence('userService', 'userController')
+      }).state('app.admin', {
+          url: "/admin",
+          templateUrl: "views/app/adminView.html",
+          title: 'Admins',
+          controller: 'adminController',
+          resolve: loadSequence('angularFileUpload', 'userService', 'adminService', 'adminController', 'addModalController')
       }).state('app.pagelayouts', {
           url: '/ui',
           template: '<div ui-view class="fade-in-up"></div>',
@@ -496,7 +526,9 @@
   	    abstract: true
   	}).state('login.signin', {
   	    url: '/signin',
-  	    templateUrl: "views/login_login.html"
+  	    templateUrl: "views/app/login.html",
+        controller: 'adminController',
+        resolve: loadSequence('adminService', 'userService' ,'adminController')
   	}).state('login.forgot', {
   	    url: '/forgot',
   	    templateUrl: "views/login_forgot.html"
