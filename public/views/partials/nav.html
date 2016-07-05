@@ -121,7 +121,7 @@
             </li>
         </ul>
     </li> -->
-    <li ng-class="{'active open':$state.includes('app.table')}">
+<!--     <li ng-class="{'active open':$state.includes('app.table')}">
         <a href="javascript:void(0)">
             <div class="item-content">
                 <div class="item-media">
@@ -146,7 +146,7 @@
                 <a ui-sref="app.table.data"> <span class="title" translate="sidebar.nav.tables.DATA">Advanced Data Tables</span> </a>
             </li>
         </ul>
-    </li>
+    </li> -->
 <!--     <li ng-class="{'active open':$state.includes('app.form')}">
         <a href="javascript:void(0)">
             <div class="item-content">
@@ -296,6 +296,23 @@
         <ul class="sub-menu">
             <li ui-sref-active="active">
                 <a ui-sref="app.admin"> <span class="title">View Admins</span> </a>
+            </li>
+        </ul>
+    </li>
+    <li ng-class="{'active open':$state.includes('app.reports')}">
+        <a href="javascript:void(0)">
+            <div class="item-content">
+                <div class="item-media">
+                     <i class="fa fa-laptop"></i>
+                </div>
+                <div class="item-inner">
+                    <span class="title"> Reports </span><i class="icon-arrow"></i>
+                </div>
+            </div>
+        </a>
+        <ul class="sub-menu">
+            <li ui-sref-active="active">
+                <a ui-sref="app.reports"> <span class="title">Payment Detail</span> </a>
             </li>
         </ul>
     </li>

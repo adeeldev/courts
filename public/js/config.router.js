@@ -47,13 +47,13 @@
           templateUrl: "views/reservation.html",
           title: 'Reservation',
           controller: 'reservationCtrl',
-          resolve: loadSequence('reservationService','reservationCtrl', 'dateRangeCtrl', 'toasterCtrl', 'sweetAlertCtrl', 'notificationIconsCtrl', 'notifyCtrl', 'ngNotify')
+          resolve: loadSequence('reservationService','reservationCtrl', 'dateRangeCtrl', 'toasterCtrl', 'sweetAlertCtrl', 'notificationIconsCtrl', 'notifyCtrl', 'ngNotify','addModalController')
       }).state('app.allreservation', {
           url: "/allreservation",
           templateUrl: "views/app/viewReservation.html",
           title: 'Reservation',
           controller: 'reservationCtrl',
-          resolve: loadSequence('reservationService','reservationCtrl', 'dateRangeCtrl', 'toasterCtrl', 'sweetAlertCtrl', 'notificationIconsCtrl', 'notifyCtrl', 'ngNotify')
+          resolve: loadSequence('angularFileUpload','addModalController','reservationService','reservationCtrl', 'dateRangeCtrl', 'toasterCtrl', 'sweetAlertCtrl', 'notificationIconsCtrl', 'notifyCtrl', 'ngNotify')
       }).state('app.courts', {
           url: "/courts",
           templateUrl: "views/app/court.html",
@@ -90,6 +90,12 @@
           title: 'Admins',
           controller: 'adminController',
           resolve: loadSequence('angularFileUpload', 'userService', 'adminService', 'adminController', 'addModalController')
+      }).state('app.reports', {
+          url: "/reports",
+          templateUrl: "views/app/booking.html",
+          title: 'Reports',
+          controller: 'bookingController',
+          resolve: loadSequence('angularFileUpload', 'slotService',  'bookingController')
       }).state('app.pagelayouts', {
           url: '/ui',
           template: '<div ui-view class="fade-in-up"></div>',

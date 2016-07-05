@@ -1,5 +1,4 @@
-angular.module('TurkishApp')
-	.controller('bookingController',['$scope','$uibModal', 'slotService' , 'FileUploader' , '$location','$cookies','$rootScope', function ($scope, $uibModal, slotService,  FileUploader, $location , $cookies, $rootScope){
+app.controller('bookingController',['$scope','$uibModal', 'slotService' , 'FileUploader' , '$location','$cookies','$rootScope', function ($scope, $uibModal, slotService,  FileUploader, $location , $cookies, $rootScope){
 		$scope.message = "Slots";
 		$scope.animationsEnabled = true;
     $scope.url = $location.host();

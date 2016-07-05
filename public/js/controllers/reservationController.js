@@ -26,6 +26,24 @@ app.controller('reservationCtrl',['$scope', 'ngNotify', '$uibModal', 'reservatio
     }
   })
 
+  $scope.do = function(stripe){
+    console.log(stripe);
+
+    var payment = {
+      'number': stripe.number,
+      'exp_month': stripe.exp_month,
+      'exp_year': stripe.exp_year,
+      'cvc': stripe.cvc,
+      'price': stripe.amount
+    }
+    reservationService.createToken(payment)
+      .then(function (response){
+
+      }).catch(function (err){
+
+      })
+  }
+
   $scope.view = function(name) {
       $scope.name = name.court;
       console.log($scope.name);
@@ -114,6 +132,31 @@ app.controller('reservationCtrl',['$scope', 'ngNotify', '$uibModal', 'reservatio
             html: $scope.notify.html
         });
     };
+
+  $scope.openNew = function(size){
+    var modalInstance = $uibModal.open({
+      animation : $scope.animationsEnabled,
+      templateUrl : '/views/app/paymentModal.html',
+      controller : 'addModalController',
+      size : size,   
+              resolve : {
+          events : function (){
+            return Event;
+          }
+        }  
+    })
+    modalInstance.result
+    .then(function (Event) {
+        return reservationService.createToken(Event);
+      })
+    .then(function (result){
+
+    })
+    .then(function (allEvent){
+      console.log(allEvent);
+    })
+  }
+
 
 
 }]);

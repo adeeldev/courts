@@ -61,6 +61,7 @@ app.constant('JS_REQUIRES', {
         'slotController': 'js/controllers/slotController.js',
         'adminController': 'js/controllers/adminController.js',
         'userController': 'js/controllers/userController.js',
+        'bookingController': 'js/controllers/bookingController.js',
         'promotionService': 'js/resource/promotionService.js',
         'adminService': 'js/resource/adminService.js',
         'userService': 'js/resource/userService.js',

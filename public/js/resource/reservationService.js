@@ -74,7 +74,20 @@ app.service('reservationService',['$http','$location',function ($http,$location)
 				data : data
 			}
 			return $http(req);
-		} 
+		}   
+		
+		this.createToken = function(data){
+			var p_url = 'http://' + $location.host() + ':' + $location.port() + '/payment';
+			req = {
+				method : "POST",
+				url : p_url + '/addPayment',
+				header : {
+					"Content-Type" : "application/json"
+				},
+				data : data
+			}
+			return $http(req);
+		}
 
 		this.addreservation = function(data){
 			req = {

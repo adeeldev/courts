@@ -1,0 +1,76 @@
+	<div class="col-md-12" class="modal-body" ng-form name='myForm'>
+		<div class="form-group" ng-if="errCheck" ><!-- ng-repeat='err in Errors'-->
+		<p class='bg-danger'>{{errCheck}}</p>
+		</div>
+			<fieldset>
+					<legend>
+							<b>Reservaion Information</b>
+					</legend>
+					<div class="row">
+							<div class="col-md-6">
+								<div class="form-group">
+										<label class="text-bold">
+												Card Number
+										</label>
+										<input type="text" name="number" class="form-control" size="20" data-stripe="number" ng-model="Event.number" required>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+										<label class="text-bold">
+												Expiry MOnth
+										</label>
+										<input type="text" name="exp_month" class="form-control" size="2" data-stripe="exp_month" ng-model="Event.exp_month" required>
+								</div>
+							</div>
+					</div>
+					<div class="row">
+							<div class="col-md-6">
+								<div class="form-group">
+										<label class="text-bold">
+												Expiry Year
+										</label>
+										<input type="text" name="exp_year" class="form-control" size="2" data-stripe="exp_year" ng-model="Event.exp_year" required>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+										<label class="text-bold">
+												CVC
+										</label>
+										<input type="text" name="cvc" class="form-control" size="4" data-stripe="cvc" ng-model="Event.cvc" required>
+								</div>
+							</div>
+					</div>
+					<div class="row">
+							<div class="col-md-6">
+								<div class="form-group">
+										<label class="text-bold">
+												Amount
+										</label>
+										<input type="text" name="price" class="form-control" size="4"  ng-model="Event.price" required>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+										<label class="text-bold">
+												Email
+										</label>
+										<input type="text" name="email" class="form-control"  ng-model="Event.email" required>
+								</div>
+							</div>							
+					</div>																		
+			</fieldset>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="modal-footer">
+	<button type="button" class="btn btn-default" ng-click='cancel()'>Close</button>
+	<button type="submit" class="btn btn-primary" ng-click='addPayment(myForm)'>Save changes</button>
+</div>
+
+

@@ -7,7 +7,7 @@ var express = require('express'),
 
 router.post('/addPayment', function (request, response){
 	
-
+console.log(request.body);
 
 	stripe.tokens.create({
 		card: {
@@ -30,9 +30,9 @@ router.post('/addPayment', function (request, response){
 				  description: request.body.email
 				}, function(err, charge) {
 					if(err){
-						response.send(err);
+						console.log(err);
 					}
-					return response.send({'msg' :'Payment made successfully'}).end();
+					response.json({'msg' : charge}).end();
 				});
 	});
 

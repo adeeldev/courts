@@ -19,6 +19,19 @@ app.controller('addModalController',['$scope','$uibModalInstance', 'FileUploader
 			}
 		}
 
+		$scope.addPayment = function (form){
+			if(form.number.$error.required ){
+				$scope.errCheck = 'Card Number is required';
+			}else if(form.exp_month.$error.required){
+					$scope.errCheck = 'Expiry Month is required';
+			}else if(form.exp_year.$error.required){
+				$scope.errCheck = 'Expire year is required';
+			}else{
+
+				$uibModalInstance.close($scope.Event);
+			}
+		}		
+
 		$scope.cancel = function (){
 			$uibModalInstance.dismiss('cancel');
 		}
