@@ -1,15 +1,15 @@
 {
     "flagstyle": "flag-icon-us",
     "dashboard": {
-        "WELCOME": "Welcome to {{appName}}"
+        "WELCOME": "fdffdf to {{appName}}"
     },
     "search": {
-        "PLACEHOLDER": "Enter search text here..."
+        "PLACEHOLDER": "dfdfdfdf d f df  df search text here..."
     },
     "topbar": {
         "messages": {
-            "MAIN": "Messages",
-            "HEADER": "Unread messages",
+            "MAIN": " df d f df",
+            "HEADER": "f d f df  f messages",
             "SEEALL": "See All"
         },
 
@@ -19,11 +19,11 @@
             "SEEALL": "See All"
         },
         "user": {
-            "PROFILE": "My Profile",
-            "CALENDAR": "My Calendar",
-            "MESSAGES": "My Messages",
-            "LOCKSCREEN": "Lock Screen",
-            "LOGOUT": "Log Out"
+            "PROFILE": "My vfddfProfile",
+            "CALENDAR": "Mydfvdf df Calendar",
+            "MESSAGES": "My f d f dMessages",
+            "LOCKSCREEN": "L d f df ock Screen",
+            "LOGOUT": "Logdf d f df Out"
         }
     },
     "offsidebar": {
