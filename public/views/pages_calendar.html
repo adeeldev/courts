@@ -13,7 +13,9 @@
                 <div class="panel-body">
                     <!-- /// controller:  'CalendarCtrl' -  localtion: assets/js/controllers/calendarCtrl.js /// -->
                     <div ng-controller="CalendarCtrl" id="demo">
-
+                        <div class="row">
+                          <a href="/#/app/reservation" class="btn btn-primary">Add Reservation</a>
+                        </div>
                         <div class="row">
                             <div class="col-md-12">
                                 <h2 class="text-center margin-bottom-20 margin-top-20">{{ calendarTitle }} </h2>
@@ -138,7 +140,7 @@
                                     </label>
                                     <input type="text" placeholder="" class="form-control underline text-large" ng-model="event.remainingPayment">
                                 </div>
-                          
+
 
                             </div>
                     </div>

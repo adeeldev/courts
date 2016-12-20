@@ -3,20 +3,20 @@ app.controller('adminController',['$scope','$location','$uibModal','$rootScope',
 		$scope.fields = ["username","email","type","created"];
 		$scope.error = false;
 
-		console.log('loading admin controller');
+		// console.log('loading admin controller');
 		$scope.login = function login(){
-			console.log('in admin controller');
+			// console.log('in admin controller');
 			adminService.login($scope.Admin)
 				.then(function (result){
 					//console.log(result.data[0]._id);
-					console.log(result.data._id);
+					// console.log(result.data._id);
 					$cookies.put('user',result.data._id );
 					$cookies.put('username',result.data.username );
 					$cookies.put('type',result.data.type);
 					$cookies.put('email',result.data.email);
 					$rootScope.loggedIn = true;
 					$rootScope.Admin = result.data;
-					console.log($rootScope.Admin);
+					// console.log($rootScope.Admin);
 					$rootScope.loggedIn = true;
 					$scope.uid = $cookies.get('user');
 					$scope.type = $cookies.get('type');
@@ -63,7 +63,7 @@ app.controller('adminController',['$scope','$location','$uibModal','$rootScope',
 		}
 
 		$scope.logout = function(){
-			console.log("here");
+			// console.log("here");
 			// $cookies.remove("user");
 			// $scope.uid = undefined;
 			// $location.path('/');
@@ -72,7 +72,7 @@ app.controller('adminController',['$scope','$location','$uibModal','$rootScope',
 
 
 		$scope.openNew = function(size){
-			console.log('eeeee');
+			// console.log('eeeee');
 			var modalInstance = $uibModal.open({
 				animation : $scope.animationsEnabled,
 				templateUrl : '/views/app/addEventModal.html',
@@ -99,7 +99,7 @@ app.controller('adminController',['$scope','$location','$uibModal','$rootScope',
 				})
 			})
 			.then(function (allEvent){
-				console.log(allEvent);
+				// console.log(allEvent);
 				$scope.noEvent = false;
 				$scope.Events = allEvent.data;
 				adminService.getAllAdmin()

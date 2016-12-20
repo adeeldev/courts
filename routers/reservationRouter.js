@@ -74,7 +74,7 @@
 	});
 
 	router.post('/allReservations', function(request, response){
-		
+
 		reservationModel.find({},{'created' : 0, '__v': 0, 'number': 0, 'checkin': 0, 'notes': 0}).sort({date : '-1'}).exec(function	(err,result){
 			if(err){
 				return response.status(500).send({"message" : "Internal server error.","code": "PE-ALL","err" : err}).end();
@@ -84,7 +84,7 @@
 			}
 			return response.status(200).send(result).end();
 		})
-	});	
+	});
 
 	router.post('/deleteReservation', function(request, response){
 		var id = request.body.id;

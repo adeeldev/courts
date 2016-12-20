@@ -10,7 +10,7 @@
                     <i class="fa fa-home"></i>
                 </div>
                 <div class="item-inner">
-                    <span class="title" translate="sidebar.nav.dashboard.MAIN"> Dashboard </span>
+                    <a ui-sref="app.courts"><span class="title" translate="sidebar.nav.dashboard.MAIN"> Dashboard </span></a>
                 </div>
             </div>
         </a>
@@ -241,14 +241,17 @@
         </a>
         <ul class="sub-menu">
             <li ui-sref-active="active">
-                <a ui-sref="app.allreservation"> <span class="title">View Reservations</span> </a>
+                <a ui-sref="app.allreservation"> <span class="title">Make Payments</span> </a>
             </li>
-<!--             <li ui-sref-active="active">
-                <a ui-sref="app.reservation"> <span class="title">Today's Reservation</span> </a>
-            </li> -->
+            <li ui-sref-active="active">
+                <a ui-sref="app.courts"> <span class="title">View Reservation</span> </a>
+            </li>
+            <li ui-sref-active="active">
+                <a ui-sref="app.reservation"> <span class="title">Make Reservation</span> </a>
+            </li>
         </ul>
     </li>
-    <li ng-class="{'active open':$state.includes('app.reservation')}">
+    <!-- <li ng-class="{'active open':$state.includes('app.reservation')}">
         <a href="javascript:void(0)">
             <div class="item-content">
                 <div class="item-media">
@@ -264,7 +267,8 @@
                 <a ui-sref="app.reservation"> <span class="title">Make Reservation</span> </a>
             </li>
         </ul>
-    </li>    
+    </li> -->
+
    <li ng-class="{'active open':$state.includes('app.users')}">
         <a href="javascript:void(0)">
             <div class="item-content">

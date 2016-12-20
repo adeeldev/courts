@@ -1,4 +1,4 @@
-app.controller('reservationCtrl',['$scope', 'ngNotify', '$uibModal', 'reservationService' , '$location','$cookies','$rootScope', 
+app.controller('reservationCtrl',['$scope', 'ngNotify', '$uibModal', 'reservationService' , '$location','$cookies','$rootScope',
   function ($scope, ngNotify, $uibModal, reservationService, $location , $cookies, $rootScope){
 
 
@@ -27,7 +27,7 @@ app.controller('reservationCtrl',['$scope', 'ngNotify', '$uibModal', 'reservatio
   })
 
   $scope.do = function(stripe){
-    console.log(stripe);
+    // console.log(stripe);
 
     var payment = {
       'number': stripe.number,
@@ -46,14 +46,14 @@ app.controller('reservationCtrl',['$scope', 'ngNotify', '$uibModal', 'reservatio
 
   $scope.view = function(name) {
       $scope.name = name.court;
-      console.log($scope.name);
+      // console.log($scope.name);
       $location.path( "/app/dashboard/"+ $scope.name);
   }
-  
+
   $scope.viewReservation = function(name) {
       $scope.url = name._id;
       $location.path( "/app/dashboard/"+ $scope.url);
-  }  
+  }
 
   $scope.addReservation = function(data){
 
@@ -64,7 +64,7 @@ app.controller('reservationCtrl',['$scope', 'ngNotify', '$uibModal', 'reservatio
     dTo = dTo.toLocaleTimeString().replace(/:\d+ /, ' ');
 
     var utc = data.endsAt.toJSON().slice(0,10);
- 
+
     var reservationData = {
       court: data.court.title,
       courtId: data.court._id,
@@ -92,7 +92,7 @@ app.controller('reservationCtrl',['$scope', 'ngNotify', '$uibModal', 'reservatio
     .then(function (reserveResponse){
       // if(reserveResponse.data.length == 0)
       //     $scope.reserveResponse = true;
-      $location.path( "/all/reservation" );
+      $location.path( "/app/courts" );
     })
     .catch(function (err){
         ngNotify.set($scope.notify.text, {
@@ -103,7 +103,7 @@ app.controller('reservationCtrl',['$scope', 'ngNotify', '$uibModal', 'reservatio
             sticky: $scope.notify.sticky,
             button: $scope.notify.button,
             html: $scope.notify.html
-        });      
+        });
       if(err.status == 500){
         $scope.serverError = true;
       }
@@ -118,7 +118,7 @@ app.controller('reservationCtrl',['$scope', 'ngNotify', '$uibModal', 'reservatio
         sticky: 'false',
         button: 'true',
         html: 'false',
-        text: 'Reservation Already exists'
+        text: 'SLot Timing is already booked! choose other Time'
     };
 
     $scope.set = function () {
@@ -138,12 +138,12 @@ app.controller('reservationCtrl',['$scope', 'ngNotify', '$uibModal', 'reservatio
       animation : $scope.animationsEnabled,
       templateUrl : '/views/app/paymentModal.html',
       controller : 'addModalController',
-      size : size,   
+      size : size,
               resolve : {
           events : function (){
             return Event;
           }
-        }  
+        }
     })
     modalInstance.result
     .then(function (Event) {
@@ -153,7 +153,7 @@ app.controller('reservationCtrl',['$scope', 'ngNotify', '$uibModal', 'reservatio
 
     })
     .then(function (allEvent){
-      console.log(allEvent);
+      // console.log(allEvent);
     })
   }
 

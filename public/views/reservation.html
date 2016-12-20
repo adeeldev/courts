@@ -1,8 +1,10 @@
 <div class="container-fluid container-fullw" ng-controller="reservationCtrl">
+  <form name="event"  novalidate> <!-- novalidate prevents HTML5 validation since we will be validating ourselves -->
+
     <div class="col-md-12">
         <fieldset>
                 <legend>
-                        <b>Reservaion Information</b>
+                        <b>Reservation Information</b>
                 </legend>
                 <div class="row">
                         <div class="col-md-6">
@@ -10,7 +12,7 @@
                                     <label class="text-bold">
                                         Select Court
                                     </label>
-                                    <select class="cs-select cs-skin-elastic" ng-options="court.title for court in courts" ng-model="event.court">
+                                      <select class="cs-select cs-skin-elastic" ng-options="court.title for court in courts" ng-model="event.court" required>
                                         <option value="" disabled="">Select</option>
                                     </select>
                             </div>
@@ -30,7 +32,7 @@
                                     <label class="text-bold">
                                             Phone Number
                                     </label>
-                                    <input type="text" placeholder="Enter Number" class="form-control" ng-model="event.number">
+                                    <input type="text" placeholder="Enter Number" class="form-control" ng-model="event.number" required>
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -86,9 +88,27 @@
                             </div>
                         </div>
                 </div>
+                <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                    <label class="text-bold">
+                                            Customer Name
+                                    </label>
+                                    <input type="text" placeholder="Customer Name" class="form-control" ng-model="event.f_name">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                    <label class="text-bold">
+                                            Family Name
+                                    </label>
+                                    <input type="text" placeholder="Family Name" class="form-control" ng-model="event.l_name">
+                            </div>
+                        </div>
+                </div>
         </fieldset>
 
-    <div class="col-md-12">
+    <!-- <div class="col-md-12">
         <fieldset>
                 <legend>
                         <b>Personal Information</b>
@@ -166,7 +186,7 @@
                                         <textarea class="form-control autosize area-animated msd-elastic: \n;" ng-model="event.notes" ></textarea>
                                 </div>
                         </div>
-                </div>                
+                </div>
 
         </fieldset>
         <fieldset>
@@ -186,10 +206,11 @@
                         </div>
                 </div>
         </fieldset>
-        <div>
+        <div> -->
     <button type="button" class="btn btn-default" ng-click='cancel()'>Close</button>
-    <button type="button" class="btn btn-primary" ng-click='addReservation(event)'>Save changes</button>
+    <button type="button" class="btn btn-primary" ng-disabled="event.$invalid" ng-click='addReservation(event)'>Save changes</button>
 </div>
+</form>
     </div>
 </div>
 </div>
